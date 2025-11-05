@@ -45,7 +45,7 @@ export default function PortfolioPage() {
       id: 2,
       title: "Artisan Menuisier Valdoisien",
       description: "Portfolio en ligne pour un artisan menuisier avec galerie de réalisations",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/portfolio/kakachi.png?height=400&width=600",
       category: "site-vitrine",
       technologies: ["React", "CSS Modules", "Node.js"],
       featured: false,
@@ -71,7 +71,7 @@ export default function PortfolioPage() {
       id: 4,
       title: "Studio de Yoga",
       description: "Site présentiel avec planning des cours et formulaire d'inscription",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/projects/project-3.jpg?",
       category: "site-vitrine",
       technologies: ["HTML/CSS", "JavaScript", "PHP"],
       featured: false,
@@ -84,7 +84,7 @@ export default function PortfolioPage() {
       id: 5,
       title: "Portfolio Photographe",
       description: "Galerie portfolio pour un photographe professionnel avec filtres par catégorie",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/portfolio/infinit-gallery.png?height=400&width=600",
       category: "blog-portfolio",
       technologies: ["React", "Framer Motion", "Firebase"],
       featured: false,
@@ -145,9 +145,9 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         {/* Hero Section */}
-        <section className="relative isolate container mx-auto w-full py-16 md:py-24 lg:py-28">
+        <section className="relative isolate container mx-auto w-full max-w-[100vw] py-16 md:py-24 lg:py-28">
           <div className="relative z-10 px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <Badge
@@ -160,7 +160,7 @@ export default function PortfolioPage() {
               </Badge>
 
               <h1
-                className="mb-6 bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="hero-heading mb-6 text-4xl md:text-5xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Des projets concrets pour des résultats tangibles
@@ -179,7 +179,7 @@ export default function PortfolioPage() {
                 data-delay="400"
               >
                 <Link href="/contact">
-                  <Button size="lg" className="h-12 rounded-full px-8 text-base shadow-md hover-lift">
+                  <Button size="lg" className="h-12 rounded-full px-4 md:px-8 text-sm md:text-base shadow-md hover-lift">
                     Discuter de mon projet
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
@@ -200,7 +200,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="w-full py-16 bg-muted/30">
+        <section className="w-full max-w-[100vw] py-16 bg-muted/30 overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="100">
@@ -224,7 +224,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Portfolio Section */}
-        <section id="portfolio" className="w-full py-16 md:py-24 bg-background relative">
+        <section id="portfolio" className="w-full max-w-[100vw] py-16 md:py-24 bg-background relative overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <Badge
@@ -235,7 +235,7 @@ export default function PortfolioPage() {
                 <span className="mr-1 text-primary">✦</span> Mes Réalisations
               </Badge>
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Une sélection de mes projets
@@ -300,10 +300,11 @@ export default function PortfolioPage() {
               {filteredProjects.map((project, index) => (
                 <Card 
                   key={project.id} 
-                  className="overflow-hidden hover-lift group scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  className="overflow-hidden hover-lift group scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg"
                   data-delay={500 + (index * 100)}
                 >
-                  <div className="relative h-48 w-full overflow-hidden">
+                  {/* Image Section - Now reaches top with no gaps */}
+                  <div className="relative h-64 w-full  m-0 p-0">
                     <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
@@ -333,7 +334,8 @@ export default function PortfolioPage() {
                     </div>
                   </div>
                   
-                  <CardHeader className="pb-3">
+                  {/* Content Section */}
+                  <CardHeader className="pb-3 pt-6">
                     <div className="flex justify-between items-start mb-2">
                       <CardTitle className="text-xl">{project.title}</CardTitle>
                       <Badge variant="outline" className="flex items-center">
@@ -341,10 +343,10 @@ export default function PortfolioPage() {
                         {project.year}
                       </Badge>
                     </div>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardDescription className="text-sm leading-relaxed">{project.description}</CardDescription>
                   </CardHeader>
                   
-                  <CardContent>
+                  <CardContent className="pt-0">
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, i) => (
@@ -355,12 +357,12 @@ export default function PortfolioPage() {
                       </div>
                     </div>
                     
-                    <div className="flex items-center text-sm text-muted-foreground">
+                    <div className="flex items-center text-sm text-muted-foreground mb-4">
                       <Zap className="mr-1 size-4 text-green-500" />
                       <span>{project.results}</span>
                     </div>
                     
-                    <Button variant="outline" className="w-full mt-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       <Eye className="mr-2 size-4" />
                       Voir les détails
                     </Button>
@@ -382,7 +384,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="w-full py-16 md:py-24 bg-muted/30">
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-muted/30 overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <Badge
@@ -393,7 +395,7 @@ export default function PortfolioPage() {
                 <span className="mr-1 text-primary">✦</span> Témoignages
               </Badge>
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Ce que disent mes clients
@@ -401,7 +403,7 @@ export default function PortfolioPage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="300">
+              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg" data-delay="300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="bg-primary/20 text-primary flex size-12 items-center justify-center rounded-full font-bold">
@@ -423,7 +425,7 @@ export default function PortfolioPage() {
                 </CardContent>
               </Card>
 
-              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="400">
+              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg" data-delay="400">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="bg-primary/20 text-primary flex size-12 items-center justify-center rounded-full font-bold">
@@ -445,7 +447,7 @@ export default function PortfolioPage() {
                 </CardContent>
               </Card>
 
-              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="500">
+              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg" data-delay="500">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="bg-primary/20 text-primary flex size-12 items-center justify-center rounded-full font-bold">
@@ -471,7 +473,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Process Section */}
-        <section className="w-full py-16 md:py-24 bg-background relative">
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-background relative overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
@@ -482,7 +484,7 @@ export default function PortfolioPage() {
                 <span className="mr-1 text-primary">✦</span> Ma Méthode
               </Badge>
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Comment je travaille sur vos projets
@@ -490,7 +492,7 @@ export default function PortfolioPage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="300">
+              <Card className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg" data-delay="300">
                 <CardContent className="p-6">
                   <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-4">
                     <Palette className="size-8" />
@@ -502,7 +504,7 @@ export default function PortfolioPage() {
                 </CardContent>
               </Card>
 
-              <Card className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="400">
+              <Card className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg" data-delay="400">
                 <CardContent className="p-6">
                   <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-4">
                     <Code className="size-8" />
@@ -514,7 +516,7 @@ export default function PortfolioPage() {
                 </CardContent>
               </Card>
 
-              <Card className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="500">
+              <Card className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg" data-delay="500">
                 <CardContent className="p-6">
                   <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-4">
                     <Smartphone className="size-8" />
@@ -530,7 +532,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="w-full py-16 md:py-24 bg-gradient-to-r from-primary to-primary/80">
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-gradient-to-r from-primary to-primary/80 overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h2
@@ -572,33 +574,6 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <style jsx>{`
-          @keyframes fadeUp {
-            from {
-              opacity: 0;
-              transform: translateY(1rem);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          
-          .animate-fade-up {
-            animation: fadeUp 0.7s ease-out forwards;
-          }
-          
-          .scroll-animate {
-            opacity: 0;
-            transform: translateY(1rem);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-          }
-          
-          .scroll-animate.animate-fade-up {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        `}</style>
       </main>
     </>
   )

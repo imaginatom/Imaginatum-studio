@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={libreBaskerville.variable}>
-      <body className={`font-sans bg-background text-foreground`}>
+      <body className={`font-sans bg-background text-foreground overflow-x-hidden`}>
       <FloatingNavbar />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />

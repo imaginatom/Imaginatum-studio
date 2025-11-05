@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 
 export function Footer() {
   return (
-    <footer className="w-full bg-background border-t border-border/40">
+    <footer className="w-full max-w-[100vw] bg-background border-t border-border/40 overflow-x-hidden">
       <div className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Brand Section */}

@@ -103,9 +103,9 @@ export default function ServicesPage() {
 
   return (
     <>
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         {/* Hero Section avec image */}
-        <section className="relative isolate container mx-auto w-full py-16 md:py-24 lg:py-28">
+        <section className="relative isolate container mx-auto w-full max-w-[100vw] py-16 md:py-24 lg:py-28">
           <div className="relative z-10 px-4 md:px-6">
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div className="mx-auto max-w-2xl text-left">
@@ -119,7 +119,7 @@ export default function ServicesPage() {
                 </Badge>
 
                 <h1
-                  className="mb-6 bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  className="hero-heading mb-6 text-4xl md:text-5xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                   data-delay="200"
                 >
                   Services de Développement Web Sur-Mesure
@@ -138,7 +138,7 @@ export default function ServicesPage() {
                   data-delay="400"
                 >
                   <Link href="/contact">
-                    <Button size="lg" className="h-12 rounded-full px-8 text-base shadow-md hover-lift">
+                    <Button size="lg" className="h-12 rounded-full px-4 md:px-8 text-sm md:text-base shadow-md hover-lift">
                       Obtenir un Devis Personnalisé
                       <ArrowRight className="ml-2 size-4" />
                     </Button>
@@ -179,12 +179,12 @@ export default function ServicesPage() {
         </section>
 
         {/* Value Proposition Section avec icônes visuelles */}
-        <section className="w-full py-16 md:py-24 bg-muted/30 relative overflow-hidden isolate">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(from_var(--muted-foreground)_r_g_b_/_0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(from_var(--muted-foreground)_r_g_b_/_0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-muted/30 relative overflow-hidden isolate">
+          <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="100"
               >
                 Ce que je vous apporte concrètement
@@ -244,7 +244,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Professional Process Section with Interactive Timeline */}
-        <section className="w-full py-20 md:py-28 bg-background relative">
+        <section className="w-full max-w-[100vw] py-20 md:py-28 bg-background relative overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
@@ -255,7 +255,7 @@ export default function ServicesPage() {
                 <span className="mr-1 text-primary">✦</span> Méthodologie Professionnelle
               </Badge>
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Un Processus Structuré pour des Résultats Exceptionnels
@@ -581,7 +581,7 @@ export default function ServicesPage() {
 
               <div className="mt-8">
                 <Link href="/contact">
-                  <Button size="lg" className="h-12 rounded-full px-8 text-base shadow-md hover-lift">
+                  <Button size="lg" className="h-12 rounded-full px-4 md:px-8 text-sm md:text-base shadow-md hover-lift">
                     <Calendar className="mr-2 size-4" />
                     Planifier un appel découverte
                     <ArrowRight className="ml-2 size-4" />
@@ -596,7 +596,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Client Results Section */}
-        <section className="w-full py-16 md:py-24 bg-muted/50">
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-muted/50 overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
@@ -607,7 +607,7 @@ export default function ServicesPage() {
                 <span className="mr-1 text-primary">✦</span> Résultats Concrets
               </Badge>
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Des Résultats qui Parlent d'eux-Mêmes
@@ -643,7 +643,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services/Pricing Section avec visuels */}
-        <section id="pricing" className="w-full py-16 md:py-24 bg-background relative">
+        <section id="pricing" className="w-full max-w-[100vw] py-16 md:py-24 bg-background relative overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
@@ -654,7 +654,7 @@ export default function ServicesPage() {
                 <span className="mr-1 text-primary">✦</span> Mes Offres
               </Badge>
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Des Solutions Adaptées à Votre Besoin
@@ -829,7 +829,7 @@ export default function ServicesPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="w-full py-16 md:py-24 bg-background">
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-background overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
@@ -840,7 +840,7 @@ export default function ServicesPage() {
                 <span className="mr-1 text-primary">✦</span> Questions Fréquentes
               </Badge>
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Tout Ce Que Vous Voulez Savoir
@@ -900,7 +900,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Final CTA Section */}
-        <section className="w-full py-20 bg-gradient-to-r from-primary to-primary/80">
+        <section className="w-full max-w-[100vw] py-20 bg-gradient-to-r from-primary to-primary/80 overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h2
@@ -919,10 +919,10 @@ export default function ServicesPage() {
               <Link href="/contact">
                 <Button
                   size="lg"
-                  className="bg-white text-primary hover:bg-gray-100 h-14 rounded-full px-10 text-lg font-bold shadow-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  className="bg-white text-primary hover:bg-gray-100 h-12 md:h-14 rounded-full px-4 md:px-10 text-sm md:text-lg font-bold shadow-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700 whitespace-normal text-center"
                   data-delay="300"
                 >
-                  🚀 Demander Mon Devis Personnalisé 🚀
+                  <span className="hidden sm:inline">🚀 </span>Demander Mon Devis <span className="hidden sm:inline">Personnalisé </span><span className="hidden sm:inline">🚀</span>
                 </Button>
               </Link>
               <p
@@ -935,33 +935,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <style jsx>{`
-          @keyframes fadeUp {
-            from {
-              opacity: 0;
-              transform: translateY(1rem);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          
-          .animate-fade-up {
-            animation: fadeUp 0.7s ease-out forwards;
-          }
-          
-          .scroll-animate {
-            opacity: 0;
-            transform: translateY(1rem);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-          }
-          
-          .scroll-animate.animate-fade-up {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        `}</style>
       </main>
     </>
   )

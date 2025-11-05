@@ -1,5 +1,5 @@
 "use client"
-
+import { HexagonBackground } from '@/components/animate-ui/components/backgrounds/hexagon';
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -29,6 +29,8 @@ import {
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import TestimonialCard from '@/components/TestimonialCard';
+import TestimonialSection from '@/components/TestimonialCard';
 
 const testimonials = [
   {
@@ -74,6 +76,7 @@ const testimonials = [
     avatar: "/avatars/michel-bernard.jpg"
   }
 ];
+
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -152,17 +155,17 @@ export default function HomePage() {
   }, [currentSlide])
 
   return (
-    <div className="min-h-screen bg-background">
-      <main className="flex-1">
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <main className="flex-1 overflow-x-hidden">
        {/* Section Héro avec Background Dynamique */}
-<section className="relative isolate overflow-hidden w-full py-20 md:py-32 lg:py-40">
+<section className="relative isolate overflow-hidden w-full max-w-[100vw] py-20 md:py-32 lg:py-40">
   {/* Dynamic Background Images */}
   <div className="absolute inset-0 z-0">
     {[
-      { id: 1, image: "/backgrounds/bg-1.png", theme: "plant" },
-      { id: 2, image: "/backgrounds/bg-2.png", theme: "architecture" },
-      { id: 3, image: "/backgrounds/bg-3.png", theme: "portfolio" },
-      { id: 4, image: "/backgrounds/bg-4.png", theme: "ecommerce" }
+      { id: 1, image: "/projects/project-1.png", theme: "plant" },
+      { id: 2, image: "/projects/project-2.png", theme: "architecture" },
+      { id: 3, image: "/projects/project-3.jpg", theme: "portfolio" },
+      { id: 4, image: "/projects/project-4.png", theme: "ecommerce" }
     ].map((bg, index) => (
       <div
         key={bg.id}
@@ -180,7 +183,7 @@ export default function HomePage() {
     ))}
   </div>
   
-  <div className="relative z-10 container mx-auto px-4 md:px-6">
+  <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-[100vw]">
     <div className="grid items-center gap-12 lg:grid-cols-2">
       <div className="mx-auto max-w-2xl text-left lg:mx-0">
         {/* Votre contenu existant reste inchangé */}
@@ -194,14 +197,14 @@ export default function HomePage() {
         </Badge>
 
         <h1
-          className="mb-2 pb-6 bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl lg:text-6xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+          className="hero-heading mb-2 pb-6 text-3xl md:text-5xl lg:text-6xl scroll-animate opacity-0 translate-y-4 transition-all duration-700 break-words"
           data-delay="200"
         >
           Des Sites Web Exceptionnels pour Professionnels Exigeants
         </h1>
 
         <p
-          className="text-muted-foreground mb-8 text-lg leading-relaxed md:text-xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+          className="text-muted-foreground mb-8 text-base leading-relaxed md:text-xl scroll-animate opacity-0 translate-y-4 transition-all duration-700 break-words"
           data-delay="300"
         >
           Transformez votre expertise en une présence en ligne qui inspire confiance et convertit vos visiteurs
@@ -212,17 +215,17 @@ export default function HomePage() {
           className="flex flex-col gap-4 sm:flex-row scroll-animate opacity-0 translate-y-4 transition-all duration-700"
           data-delay="400"
         >
-          <Link href="/devis">
-            <Button size="lg" className="h-12 rounded-full px-8 text-base shadow-md hover-lift">
+          <Link href="/devis" className="w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto h-12 rounded-full px-4 md:px-8 text-sm md:text-base shadow-md hover-lift">
               Obtenir un Devis Personnalisé
               <ArrowRight className="ml-2 size-4" />
             </Button>
           </Link>
-          <Link href="/contact">
+          <Link href="/contact" className="w-full sm:w-auto">
             <Button
               variant="outline"
               size="lg"
-              className="h-12 rounded-full border-primary/20 px-8 text-base hover-lift hover:border-primary/50 bg-transparent"
+              className="w-full sm:w-auto h-12 rounded-full border-primary/20 px-4 md:px-8 text-sm md:text-base hover-lift hover:border-primary/50 bg-transparent"
             >
               <Phone className="mr-2 size-4" />
               Consultation Gratuite
@@ -343,8 +346,8 @@ export default function HomePage() {
 </section>
 
 {/* Section Avantages - REWRITTEN FOR CONVERSIONS */}
-<section className="w-full py-20 md:py-32 bg-muted/30 relative overflow-hidden isolate">
-  <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(from_var(--muted-foreground)_r_g_b_/_0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(from_var(--muted-foreground)_r_g_b_/_0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+<section className="w-full max-w-[100vw] py-20 md:py-32 bg-muted/30 relative overflow-hidden isolate">
+  <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
   <div className="container mx-auto px-4 md:px-6 relative">
     <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
       <Badge
@@ -419,7 +422,8 @@ export default function HomePage() {
 </section>
 
 {/* Section Processus - CLEAN & PROFESSIONAL */}
-<section id="how-it-works" className="w-full py-20 md:py-32 bg-background relative">
+<section id="how-it-works" className="w-full max-w-[100vw] py-20 md:py-32 bg-background relative overflow-x-hidden">
+  
   <div className="container mx-auto px-4 md:px-6 relative">
     <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
       <Badge
@@ -430,7 +434,7 @@ export default function HomePage() {
         <span className="mr-1 text-primary">✦</span> Notre Processus
       </Badge>
       <h2
-        className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
         data-delay="200"
       >
         Votre Projet en 3 Étapes Claires
@@ -504,7 +508,7 @@ export default function HomePage() {
     
     {/* CTA Button */}
     <div className="text-center mt-12 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="900">
-      <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg rounded-full shadow-lg hover-lift">
+      <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 md:px-8 py-3 text-sm md:text-lg rounded-full shadow-lg hover-lift">
         <Phone className="mr-2 size-5" />
         Démarrer Mon Projet
       </Button>
@@ -513,8 +517,8 @@ export default function HomePage() {
 </section>
 
         {/* Section Tarifs */}
-        <section className="w-full py-20 md:py-32 bg-muted/30 relative overflow-hidden isolate">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(from_var(--muted-foreground)_r_g_b_/_0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(from_var(--muted-foreground)_r_g_b_/_0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+        <section className="w-full max-w-[100vw] py-20 md:py-32 bg-muted/30 relative overflow-hidden isolate">
+          <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
@@ -692,9 +696,9 @@ export default function HomePage() {
                 Tous les tarifs incluent l'hébergement, le nom de domaine et la maintenance de base
               </p>
               <Link href="/contact">
-                <Button variant="outline" size="lg" className="rounded-full px-8 bg-transparent">
+                <Button variant="outline" size="lg" className="rounded-full px-4 md:px-8 text-sm md:text-base bg-transparent whitespace-normal">
                   <Phone className="mr-2 size-4" />
-                  Consultation gratuite pour définir vos besoins
+                  <span className="hidden sm:inline">Consultation gratuite pour </span>définir vos besoins
                 </Button>
               </Link>
             </div>
@@ -702,7 +706,7 @@ export default function HomePage() {
         </section>
 
         {/* Section Services */}
-        <section id="features" className="relative isolate w-full py-20 md:py-32">
+        <section id="features" className="relative isolate w-full max-w-[100vw] py-20 md:py-32 overflow-x-hidden">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(from_var(--primary)_r_g_b_/_0.03),transparent_70%)]"></div>
           <div className="container mx-auto px-4 md:px-6">
             <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
@@ -822,70 +826,12 @@ export default function HomePage() {
         </section>
 
 {/* Testimonials Section */}
-<section className="w-full  py-20 md:py-32 bg-gradient-to-br from-background to-muted/30 relative overflow-hidden">
-  <div className="container mx-auto px-4 md:px-6 ">
-    <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
-      <Badge
-        variant="secondary"
-        className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow"
-      >
-        <span className="mr-1 text-primary">✦</span> Témoignages Clients
-      </Badge>
-      <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-        Ce Que Disent Mes Clients
-      </h2>
-      <p className="max-w-[800px] text-muted-foreground md:text-lg">
-        Des résultats concrets, des relations durables. Découvrez pourquoi 80% de mes clients reviennent.
-      </p>
+<div>
+      {/* Other components */}
+      <TestimonialSection />
     </div>
-
-    {/* Infinite Carousel Container */}
-    <div className="relative overflow-hidden pb-2">
-      {/* Gradient Overlays */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10"></div>
-      
-      {/* Carousel Track */}
-      <div className="flex space-x-6 animate-infinite-scroll">
-        {/* Duplicate set for seamless loop */}
-        {[...testimonials, ...testimonials].map((testimonial, index) => (
-          <Card key={index} className="w-[480px] md:w-[420px] flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <CardContent className="p-5">
-              {/* Stars */}
-              <div className="flex mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              
-              {/* Testimonial Text */}
-              <blockquote className="text-sm md:text-base italic text-muted-foreground mb-4 leading-relaxed">
-                "{testimonial.text}"
-              </blockquote>
-              
-              {/* Client Info */}
-              <div className="flex items-center space-x-3">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary/20">
-                  <span className="text-primary font-bold text-sm">
-                    {testimonial.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h4 className="font-semibold text-foreground text-sm truncate">{testimonial.name}</h4>
-                  <p className="text-xs text-muted-foreground truncate">{testimonial.title}</p>
-                  <p className="text-xs text-primary font-medium truncate">{testimonial.company}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-    
-  </div>
-</section>
       {/* FAQ Section */}
-        <section className="w-full py-16 md:py-24 bg-background">
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-background overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
@@ -973,7 +919,7 @@ export default function HomePage() {
             <div className="text-center mt-12">
               <p className="text-muted-foreground mb-6">Une autre question ? Parlons-en directement !</p>
               <Link href="/contact">
-                <Button size="lg" className="h-12 rounded-full px-8 text-base shadow-md hover-lift">
+                <Button size="lg" className="h-12 rounded-full px-4 md:px-8 text-sm md:text-base shadow-md hover-lift">
                   <Phone className="mr-2 size-4" />
                   Poser ma question
                   <ArrowRight className="ml-2 size-4" />
@@ -982,94 +928,69 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+{/* Section CTA Finale */}
+<section className="relative w-full max-w-[100vw] py-20 overflow-hidden bg-primary">
+  {/* Animated Hexagon Background */}
+  <HexagonBackground
+  className="absolute inset-0 z-0"
+  hexagonSize={70}
+  hexagonMargin={4}
+  hexagonProps={{
+    style: {
+      backgroundColor: '#ff6347', // Tomato color
+      opacity: 0.8,
+    },
+  }}
+/>
 
-        {/* Section CTA Finale */}
-        <section className="w-full py-20 bg-gradient-to-r from-primary to-primary/80">
-          <div className="container mx-auto px-4 md:px-6 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h2
-                className="text-2xl md:text-3xl font-bold text-white mb-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
-                data-delay="100"
-              >
-                ⚠️ Vous Lisez Encore? ⚠️
-              </h2>
-              <p
-                className="text-white/90 mb-8 text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
-                data-delay="200"
-              >
-                Pendant ce temps... Vos concurrents optimisent leur site • Google référence leurs pages • Leurs clients
-                leur envoient des emails
-              </p>
-              <p
-                className="text-white font-semibold mb-10 text-xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
-                data-delay="300"
-              >
-                Votre Projet Mérite D'exister En Ligne. Aujourd'hui.
-              </p>
-              <Link href="/devis">
-                <Button
-                  size="lg"
-                  className="bg-white text-primary hover:bg-gray-100 h-14 rounded-full px-10 text-lg font-bold shadow-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
-                  data-delay="400"
-                >
-                  🚀 JE VEUX MON DEVIS GRATUIT 🚀
-                </Button>
-              </Link>
-              <p
-                className="text-white/80 mt-4 text-sm scroll-animate opacity-0 translate-y-4 transition-all duration-700"
-                data-delay="500"
-              >
-                (15 minutes au téléphone = une stratégie claire pour vous)
-              </p>
-            </div>
-          </div>
-        </section>
+
+
+  {/* CTA Content */}
+  <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
+    <div className="max-w-3xl mx-auto">
+      <h2
+        className="text-2xl md:text-3xl font-bold text-stone-900 mb-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="100"
+      >
+        ⚠️ Vous Lisez Encore? ⚠️
+      </h2>
+
+      <p
+        className="text-stone-900 mb-8 text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="200"
+      >
+        Pendant ce temps... Vos concurrents optimisent leur site • Google référence leurs pages • Leurs clients
+        leur envoient des emails
+      </p>
+
+      <p
+        className="text-stone-900 font-semibold mb-10 text-xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="300"
+      >
+        Votre Projet Mérite D'exister En Ligne. Aujourd'hui.
+      </p>
+
+      <Link href="/devis">
+        <Button
+          size="lg"
+          className="bg-stone-900 text-secondary hover:bg-gray-100 h-12 md:h-14 rounded-full px-4 md:px-10 text-sm md:text-lg font-bold shadow-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700 whitespace-normal text-center"
+          data-delay="400"
+        >
+          <span className="block md:inline">🚀</span> <span className="hidden sm:inline">JE VEUX MON </span>DEVIS GRATUIT <span className="block md:inline">🚀</span>
+        </Button>
+      </Link>
+
+      <p
+        className="text-white/80 mt-4 text-sm scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="500"
+      >
+        (15 minutes au téléphone = une stratégie claire pour vous)
+      </p>
+    </div>
+  </div>
+</section>
       </main>
 
-      <style jsx>{`
-@keyframes infinite-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-320px * 6 - 1.5rem * 6));
-  }
-}
-
-.animate-infinite-scroll {
-  animation: infinite-scroll 40s linear infinite;
-  display: flex;
-}
-
-.animate-infinite-scroll:hover {
-  animation-play-state: paused;
-}
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(1rem);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-fade-up {
-          animation: fadeUp 0.7s ease-out forwards;
-        }
-        
-        .scroll-animate {
-          opacity: 0;
-          transform: translateY(1rem);
-          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-        
-        .scroll-animate.animate-fade-up {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}</style>
     </div>
   )
 }

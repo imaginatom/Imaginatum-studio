@@ -5,24 +5,15 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
+import { Phone, Mail, MapPin, Clock, Linkedin, Facebook, Instagram, Calendar, ArrowRight, MailCheck } from "lucide-react"
+import Link from "next/link"
+  import {
   Send,
   MessageCircle,
-  Calendar,
-  CheckCircle,
-  ArrowRight,
-  Linkedin,
-  Facebook,
-  Instagram,
-  MailCheck
+  CheckCircle
 } from "lucide-react"
 import { useEffect, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import { useForm, ValidationError } from "@formspree/react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -32,30 +23,13 @@ export default function ContactPage() {
     service: "",
     message: ""
   })
-  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Ici vous intégrerez votre solution d'envoi d'email (Formspree, EmailJS, API Route, etc.)
-    console.log("Form data submitted:", formData)
-    setIsSubmitted(true)
-    
-    // Réinitialiser après 5 secondes
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: ""
-      })
-    }, 5000)
-  }
+  // Formspree hook — replace "mnnogyok" with your form ID
+  const [state, handleSubmit] = useForm("mnnogyok")
 
   useEffect(() => {
     const observerOptions = {
@@ -80,12 +54,11 @@ export default function ContactPage() {
 
     return () => observer.disconnect()
   }, [])
-
   return (
     <>
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         {/* Hero Section */}
-        <section className="relative isolate container mx-auto w-full py-16 md:py-24 lg:py-28">
+        <section className="relative isolate container mx-auto w-full max-w-[100vw] py-16 md:py-24 lg:py-28">
           <div className="relative z-10 px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
               <Badge
@@ -98,7 +71,7 @@ export default function ContactPage() {
               </Badge>
 
               <h1
-                className="mb-6 bg-gradient-to-r from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-4xl font-bold tracking-tight text-transparent md:text-5xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="hero-heading mb-6 text-4xl md:text-5xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Discutons de votre projet
@@ -115,121 +88,182 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Grid */}
-        <section className="w-full py-16 md:py-24 bg-muted/30 relative overflow-hidden isolate">
-          <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(from_var(--muted-foreground)_r_g_b_/_0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(from_var(--muted-foreground)_r_g_b_/_0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-muted/30 relative overflow-hidden isolate">
+          <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-              {/* Contact Form */}
-              <div className="scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="400">
-                <Card className="border-border/40 hover-lift">
-                  <CardHeader>
-                    <CardTitle className="text-2xl flex items-center">
-                      <MessageCircle className="mr-2 size-5 text-primary" />
-                      Envoyez-moi un message
-                    </CardTitle>
-                    <CardDescription>
-                      Remplissez ce formulaire et je vous réponds sous 24h
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    {isSubmitted ? (
-                      <div className="text-center py-8">
-                        <CheckCircle className="mx-auto size-16 text-green-500 mb-4" />
-                        <h3 className="text-xl font-bold mb-2">Message envoyé !</h3>
-                        <p className="text-muted-foreground">
-                          Merci pour votre message. Je vous contacte très rapidement.
-                        </p>
-                      </div>
-                    ) : (
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="space-y-2">
-                            <label htmlFor="name" className="text-sm font-medium">
-                              Nom complet *
-                            </label>
-                            <Input
-                              id="name"
-                              name="name"
-                              placeholder="Votre nom"
-                              required
-                              value={formData.name}
-                              onChange={handleChange}
-                            />
-                          </div>
-                          <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-medium">
-                              Email *
-                            </label>
-                            <Input
-                              id="email"
-                              name="email"
-                              type="email"
-                              placeholder="votre@email.com"
-                              required
-                              value={formData.email}
-                              onChange={handleChange}
-                            />
-                          </div>
-                        </div>
+              {/* Contact Form Section - Updated */}
+<div className="scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="400">
+  <Card className="border-border/40 hover-lift">
+    <CardHeader>
+      <CardTitle className="text-2xl flex items-center">
+        <MessageCircle className="mr-2 size-5 text-primary" />
+        Envoyez-moi un message
+      </CardTitle>
+      <CardDescription>
+        Remplissez ce formulaire et je vous réponds sous 24h
+      </CardDescription>
+    </CardHeader>
+    <CardContent>
+      {state.succeeded ? (
+        <div className="text-center py-8">
+          <CheckCircle className="mx-auto size-16 text-green-500 mb-4" />
+          <h3 className="text-xl font-bold mb-2">Message envoyé !</h3>
+          <p className="text-muted-foreground">
+            Merci pour votre message. Je vous contacte très rapidement.
+          </p>
+          <Button 
+            onClick={() => setFormData({
+              name: "",
+              email: "",
+              phone: "",
+              service: "",
+              message: ""
+            })}
+            className="mt-4"
+            variant="outline"
+          >
+            Envoyer un nouveau message
+          </Button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium">
+                Nom complet *
+              </label>
+              <Input
+                id="name"
+                name="name"
+                placeholder="Votre nom"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                disabled={state.submitting}
+              />
+              <ValidationError 
+                prefix="Name" 
+                field="name"
+                errors={state.errors}
+                className="text-red-500 text-xs"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-sm font-medium">
+                Email *
+              </label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="votre@email.com"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                disabled={state.submitting}
+              />
+              <ValidationError 
+                prefix="Email" 
+                field="email"
+                errors={state.errors}
+                className="text-red-500 text-xs"
+              />
+            </div>
+          </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="space-y-2">
-                            <label htmlFor="phone" className="text-sm font-medium">
-                              Téléphone
-                            </label>
-                            <Input
-                              id="phone"
-                              name="phone"
-                              type="tel"
-                              placeholder="06 12 34 56 78"
-                              value={formData.phone}
-                              onChange={handleChange}
-                            />
-                          </div>
-                          <div className="space-y-2">
-                            <label htmlFor="service" className="text-sm font-medium">
-                              Service intéressé
-                            </label>
-                            <select
-                              id="service"
-                              name="service"
-                              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                              value={formData.service}
-                              onChange={handleChange}
-                            >
-                              <option value="">Sélectionnez une option</option>
-                              <option value="site-vitrine">Site Vitrine</option>
-                              <option value="blog-portfolio">Blog/Portfolio</option>
-                              <option value="ecommerce">E-commerce (bientôt disponible)</option>
-                              <option value="autre">Autre projet</option>
-                            </select>
-                          </div>
-                        </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label htmlFor="phone" className="text-sm font-medium">
+                Téléphone
+              </label>
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="06 12 34 56 78"
+                value={formData.phone}
+                onChange={handleChange}
+                disabled={state.submitting}
+              />
+              <ValidationError 
+                prefix="Phone" 
+                field="phone"
+                errors={state.errors}
+                className="text-red-500 text-xs"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="service" className="text-sm font-medium">
+                Service intéressé
+              </label>
+              <select
+                id="service"
+                name="service"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                value={formData.service}
+                onChange={handleChange}
+                disabled={state.submitting}
+              >
+                <option value="">Sélectionnez une option</option>
+                <option value="site-vitrine">Site Vitrine</option>
+                <option value="blog-portfolio">Blog/Portfolio</option>
+                <option value="ecommerce">E-commerce (bientôt disponible)</option>
+                <option value="autre">Autre projet</option>
+              </select>
+              <ValidationError 
+                prefix="Service" 
+                field="service"
+                errors={state.errors}
+                className="text-red-500 text-xs"
+              />
+            </div>
+          </div>
 
-                        <div className="space-y-2">
-                          <label htmlFor="message" className="text-sm font-medium">
-                            Votre message *
-                          </label>
-                          <Textarea
-                            id="message"
-                            name="message"
-                            placeholder="Décrivez votre projet, vos objectifs, votre public cible..."
-                            rows={5}
-                            required
-                            value={formData.message}
-                            onChange={handleChange}
-                          />
-                        </div>
+          <div className="space-y-2">
+            <label htmlFor="message" className="text-sm font-medium">
+              Votre message *
+            </label>
+            <Textarea
+              id="message"
+              name="message"
+              placeholder="Décrivez votre projet, vos objectifs, votre public cible..."
+              rows={5}
+              required
+              value={formData.message}
+              onChange={handleChange}
+              disabled={state.submitting}
+            />
+            <ValidationError 
+              prefix="Message" 
+              field="message"
+              errors={state.errors}
+              className="text-red-500 text-xs"
+            />
+          </div>
 
-                        <Button type="submit" className="w-full h-12 rounded-full hover-scale">
-                          <Send className="mr-2 size-4" />
-                          Envoyer le message
-                        </Button>
-                      </form>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
+          <Button 
+            type="submit" 
+            disabled={state.submitting}
+            className="w-full h-12 rounded-full hover-scale"
+          >
+            {state.submitting ? (
+              <>
+                <div className="mr-2 size-4 animate-spin rounded-full border-2 border-background border-t-transparent" />
+                Envoi en cours...
+              </>
+            ) : (
+              <>
+                <Send className="mr-2 size-4" />
+                Envoyer le message
+              </>
+            )}
+          </Button>
+        </form>
+      )}
+    </CardContent>
+  </Card>
+</div>
 
               {/* Contact Information */}
               <div className="space-y-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="500">
@@ -247,8 +281,8 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold">Téléphone</h3>
-                        <p className="text-muted-foreground">06 12 34 56 78</p>
-                        <Link href="tel:+33612345678">
+                        <p className="text-muted-foreground">06 38 05 05 47</p>
+                        <Link href="tel:+33638050547">
                           <Button variant="link" className="p-0 h-auto text-primary">
                             Appeler maintenant
                           </Button>
@@ -262,8 +296,8 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold">Email</h3>
-                        <p className="text-muted-foreground">contact@mondomaine.fr</p>
-                        <Link href="mailto:contact@mondomaine.fr">
+                        <p className="text-muted-foreground">contact@imaginatum.fr</p>
+                        <Link href="mailto:contact@imaginatum.fr">
                           <Button variant="link" className="p-0 h-auto text-primary">
                             Envoyer un email
                           </Button>
@@ -279,7 +313,7 @@ export default function ContactPage() {
                         <h3 className="font-semibold">Localisation</h3>
                         <p className="text-muted-foreground">Val d'Oise, Île-de-France</p>
                         <p className="text-sm text-muted-foreground">
-                          Interventions possibles à Cergy, Pontoise et alentours
+                          Interventions possibles en Ile de France.
                         </p>
                       </div>
                     </div>
@@ -334,13 +368,17 @@ export default function ContactPage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Link href="#" target="_blank">
-                      <Button className="w-full h-12 rounded-full hover-scale">
-                        <Calendar className="mr-2 size-4" />
-                        Choisir un créneau
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
-                    </Link>
+                    <Link
+  href="https://calendly.com/sidahmedrose/30min"
+  target="_blank"
+>
+  <Button className="w-full h-12 rounded-full hover-scale">
+    <Calendar className="mr-2 size-4" />
+    Choisir un créneau
+    <ArrowRight className="ml-2 size-4" />
+  </Button>
+</Link>
+
                   </CardContent>
                 </Card>
               </div>
@@ -349,7 +387,7 @@ export default function ContactPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="w-full py-16 md:py-24 bg-background relative">
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-background relative overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
@@ -360,7 +398,7 @@ export default function ContactPage() {
                 <span className="mr-1 text-primary">✦</span> Questions Fréquentes
               </Badge>
               <h2
-                className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
                 Questions sur le processus
@@ -420,7 +458,7 @@ export default function ContactPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="w-full py-16 md:py-24 bg-gradient-to-r from-primary to-primary/80">
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-gradient-to-r from-primary to-primary/80 overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h2
@@ -436,23 +474,23 @@ export default function ContactPage() {
                 Contactez-moi aujourd'hui et obtenez un devis personnalisé pour votre site web
               </p>
               <div
-                className="flex flex-col gap-4 sm:flex-row justify-center scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                className="flex flex-col gap-4 sm:flex-row justify-center items-stretch sm:items-center scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="300"
               >
-                <Link href="tel:+33612345678">
+                <Link href="tel:+33612345678" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    className="bg-white text-primary hover:bg-gray-100 h-12 rounded-full px-8 font-bold shadow-lg"
+                    className="w-full sm:w-auto bg-white text-primary hover:bg-gray-100 h-12 rounded-full px-4 md:px-8 text-sm md:text-base font-bold shadow-lg"
                   >
                     <Phone className="mr-2 size-4" />
                     Appeler maintenant
                   </Button>
                 </Link>
-                <Link href="#contact-form">
+                <Link href="#contact-form" className="w-full sm:w-auto">
                   <Button
                     variant="outline"
                     size="lg"
-                    className="border-white text-white hover:bg-white/10 h-12 rounded-full px-8 font-bold"
+                    className="w-full sm:w-auto border-white text-white hover:bg-white/10 h-12 rounded-full px-4 md:px-8 text-sm md:text-base font-bold"
                   >
                     <Mail className="mr-2 size-4" />
                     Envoyer un message
@@ -463,33 +501,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <style jsx>{`
-          @keyframes fadeUp {
-            from {
-              opacity: 0;
-              transform: translateY(1rem);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-          
-          .animate-fade-up {
-            animation: fadeUp 0.7s ease-out forwards;
-          }
-          
-          .scroll-animate {
-            opacity: 0;
-            transform: translateY(1rem);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-          }
-          
-          .scroll-animate.animate-fade-up {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        `}</style>
       </main>
     </>
   )
