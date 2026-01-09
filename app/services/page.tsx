@@ -1,0 +1,936 @@
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import {
+  ArrowRight,
+  Check,
+  X,
+  Phone,
+  Mail,
+  Calendar,
+  FileText,
+  Code,
+  Palette,
+  Smartphone,
+  Zap,
+  Shield,
+  Users,
+  MapPin,
+  Clock,
+  Star,
+  ChevronRight,
+  Award,
+  Target,
+  Lightbulb,
+  HeartHandshake,
+  TrendingUp,
+  CheckCircle
+} from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { PricingComparisonTable } from "@/components/pricing-comparison-table"
+import { GuaranteeSection } from "@/components/guarantee-section"
+
+// Custom hook for intersection observer
+interface UseOnScreenOptions {
+  rootMargin?: string
+}
+
+function useOnScreen(
+  ref: React.RefObject<Element>,
+  rootMargin: UseOnScreenOptions["rootMargin"] = "0px"
+): boolean {
+  const [isIntersecting, setIntersecting] = useState<boolean>(false)
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]: IntersectionObserverEntry[]) => setIntersecting(entry.isIntersecting),
+      { rootMargin }
+    )
+    
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+    
+    return () => observer.disconnect()
+  }, [ref, rootMargin])
+  
+  return isIntersecting
+}
+
+export default function ServicesPage() {
+  const [activePhase, setActivePhase] = useState(0)
+  const phaseRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]
+  
+  // Check which phase is in view
+  const phase1Visible = useOnScreen(phaseRefs[0], "-100px")
+  const phase2Visible = useOnScreen(phaseRefs[1], "-100px")
+  const phase3Visible = useOnScreen(phaseRefs[2], "-100px")
+  const phase4Visible = useOnScreen(phaseRefs[3], "-100px")
+  
+  useEffect(() => {
+    if (phase4Visible) setActivePhase(3)
+    else if (phase3Visible) setActivePhase(2)
+    else if (phase2Visible) setActivePhase(1)
+    else if (phase1Visible) setActivePhase(0)
+  }, [phase1Visible, phase2Visible, phase3Visible, phase4Visible])
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.getAttribute("data-delay") || "0"
+          setTimeout(() => {
+            entry.target.classList.add("animate-fade-up")
+          }, Number.parseInt(delay))
+          observer.unobserve(entry.target)
+        }
+      })
+    }, observerOptions)
+
+    const elements = document.querySelectorAll(".scroll-animate")
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <>
+      <main className="flex-1 overflow-x-hidden">
+        {/* Hero Section avec image */}
+        <section className="relative isolate container mx-auto w-full max-w-[100vw] py-24 md:py-32 lg:py-40">
+          <div className="relative z-10 px-4 md:px-6">
+            <div className="grid items-center gap-12 lg:grid-cols-2 max-w-7xl mx-auto">
+              <div className="mx-auto max-w-2xl text-left">
+                <Badge
+                  variant="secondary"
+                  className="mb-4 rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  data-delay="100"
+                >
+                  <span className="text-foreground mr-1">✦</span>
+                  Expertise Val d'Oise
+                </Badge>
+
+                <h1
+                  className="hero-heading mb-6 text-4xl md:text-5xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  data-delay="200"
+                >
+                  Services de Développement Web Sur-Mesure
+                </h1>
+
+                <p
+                  className="text-muted-foreground mb-8 text-lg leading-relaxed md:text-xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  data-delay="300"
+                >
+                  Des solutions concrètes pour booster votre business en ligne, adaptées à votre métier et à votre budget.
+                  Je privilégie la qualité et la transparence pour des résultats qui durent.
+                </p>
+
+                <div
+                  className="flex flex-col gap-4 sm:flex-row scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  data-delay="400"
+                >
+                  <Link href="/contact">
+                    <Button size="lg" className="h-12 rounded-full px-4 md:px-8 text-sm md:text-base shadow-md hover-lift">
+                      Obtenir un Devis Personnalisé
+                      <ArrowRight className="ml-2 size-4" />
+                    </Button>
+                  </Link>
+                  <div className="flex flex-col gap-3 sm:flex-row">
+                    <Link href="https://calendly.com/sidahmedrose/30min" target="_blank">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="h-12 rounded-full border-primary/20 px-6 text-base hover-lift hover:border-primary/50 bg-transparent"
+                      >
+                        <Calendar className="mr-2 size-4" />
+                        Réserver un appel
+                      </Button>
+                    </Link>
+                    <Link href="#pricing">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="h-12 rounded-full border-primary/20 px-6 text-base hover-lift hover:border-primary/50 bg-transparent"
+                      >
+                        Voir les formules
+                        <ChevronRight className="ml-2 size-4" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="relative hidden lg:block scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="500"
+              >
+                <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 z-10"></div>
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <div className="text-center p-8">
+                      <div className="bg-background/80 backdrop-blur rounded-xl p-6 shadow-lg">
+                        <Code className="w-12 h-12 text-primary mx-auto mb-4" />
+                        <h3 className="font-semibold text-lg mb-2">Développement Sur-Mesure</h3>
+                        <p className="text-sm text-muted-foreground">Val d'Oise & Île-de-France</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Value Proposition Section avec icônes visuelles */}
+        <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden isolate noise-overlay">
+          {/* Grid pattern */}
+          <div className="absolute inset-0 -z-10 grid-pattern-bg opacity-30"></div>
+          {/* Radial spotlights */}
+          <div className="radial-spotlight-top-right"></div>
+          <div className="radial-spotlight-bottom-left"></div>
+          {/* Animated gradient orbs */}
+          <div className="gradient-orb gradient-orb-1"></div>
+          <div className="gradient-orb gradient-orb-2"></div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <h2
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="100"
+              >
+                Ce que je vous apporte concrètement
+              </h2>
+              <p
+                className="max-w-[800px] text-muted-foreground md:text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="200"
+              >
+                Une expertise ciblée sur ce qui fonctionne vraiment pour les professionnels du Val d'Oise
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 text-center group" data-delay="300">
+                <CardContent className="p-6">
+                  <div className="bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors mx-auto flex size-20 items-center justify-center rounded-full mb-4">
+                    <div className="relative h-12 w-12">
+                      <Palette className="size-12" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Design Professionnel</h3>
+                  <p className="text-muted-foreground">
+                    Sites modernes et élégants qui vous représentent parfaitement et inspirent confiance
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 text-center group" data-delay="400">
+                <CardContent className="p-6">
+                  <div className="bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors mx-auto flex size-20 items-center justify-center rounded-full mb-4">
+                    <div className="relative h-12 w-12">
+                      <Smartphone className="size-12" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Mobile-First</h3>
+                  <p className="text-muted-foreground">
+                    Optimisé pour les 76% de visiteurs sur mobile avec une expérience fluide
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 text-center group" data-delay="500">
+                <CardContent className="p-6">
+                  <div className="bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors mx-auto flex size-20 items-center justify-center rounded-full mb-4">
+                    <div className="relative h-12 w-12">
+                      <Zap className="size-12" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Performance</h3>
+                  <p className="text-muted-foreground">
+                    Sites ultra-rapides pour un meilleur référencement et une expérience utilisateur optimale
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Professional Process Section with Interactive Timeline */}
+        <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-br from-background via-muted/5 to-background relative overflow-x-hidden isolate noise-overlay">
+          {/* Subtle radial spotlight */}
+          <div className="radial-spotlight-center"></div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+              <Badge
+                variant="secondary"
+                className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="100"
+              >
+                <span className="mr-1 text-primary">✦</span> Méthodologie Professionnelle
+              </Badge>
+              <h2
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="200"
+              >
+                Un Processus Structuré pour des Résultats Exceptionnels
+              </h2>
+              <p
+                className="max-w-[800px] text-muted-foreground md:text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="300"
+              >
+                Contrairement à beaucoup de développeurs, je ne me contente pas de coder. J'applique une méthodologie éprouvée qui garantit votre succès en ligne.
+              </p>
+            </div>
+
+            <div className="max-w-6xl mx-auto">
+              <div className="relative">
+                {/* Progress line with animated fill */}
+                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block">
+                  <div 
+                    className="absolute top-0 left-0 w-full h-full bg-primary origin-top transition-all duration-1000"
+                    style={{ transform: `scaleY(${activePhase / 3})` }}
+                  ></div>
+                </div>
+                
+                {/* Progress indicator (mobile) */}
+                <div className="md:hidden mb-8 bg-muted rounded-full h-2">
+                  <div 
+                    className="bg-primary h-2 rounded-full transition-all duration-700"
+                    style={{ width: `${((activePhase + 1) / 4) * 100}%` }}
+                  ></div>
+                </div>
+                
+                {/* Process Steps */}
+                <div className="space-y-12 md:space-y-16">
+                  {/* Phase 1: Discovery */}
+                  <div ref={phaseRefs[0]} className="flex flex-col md:flex-row gap-8 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="400">
+                    <div className="md:w-1/3 md:text-right md:pr-8">
+                      <div className="flex items-center md:justify-end gap-4 mb-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold shadow-lg flex-shrink-0">
+                          1
+                        </div>
+                        <h3 className="text-xl font-bold md:text-right">Découverte & Stratégie</h3>
+                      </div>
+                      <p className="text-muted-foreground md:text-right">
+                        (Semaine 1-2) - Nous posons les fondations de votre succès
+                      </p>
+                    </div>
+                    <div className="md:w-2/3 md:pl-8">
+                      <Card className="hover-lift">
+                        <CardContent className="p-6">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                                <Lightbulb className="w-4 h-4 text-primary" />
+                                Ce que nous faisons :
+                              </h4>
+                              <ul className="space-y-2">
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Analyse approfondie de votre marché et concurrents</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Définition de vos objectifs business précis</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Audit de votre présence digitale actuelle</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Stratégie de contenu sur-mesure</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                                <FileText className="w-4 h-4 text-primary" />
+                                Livrables :
+                              </h4>
+                              <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li>• Cahier des charges détaillé</li>
+                                <li>• Plan stratégique digital</li>
+                                <li>• Personas clients définis</li>
+                                <li>• Calendrier de projet</li>
+                              </ul>
+                              <div className="mt-4 p-3 bg-muted rounded-lg">
+                                <p className="text-sm font-medium flex items-center gap-2">
+                                  <MapPin className="w-4 h-4 text-primary" />
+                                  <span>Spécialité Val d'Oise : Analyse des spécificités locales</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+
+                  {/* Phase 2: Conception */}
+                  <div ref={phaseRefs[1]} className="flex flex-col md:flex-row gap-8 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="500">
+                    <div className="md:w-1/3 md:text-right md:pr-8">
+                      <div className="flex items-center md:justify-end gap-4 mb-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold shadow-lg flex-shrink-0">
+                          2
+                        </div>
+                        <h3 className="text-xl font-bold md:text-right">Conception & Design</h3>
+                      </div>
+                      <p className="text-muted-foreground md:text-right">
+                        (Semaine 2-3) - Nous donnons vie à votre vision
+                      </p>
+                    </div>
+                    <div className="md:w-2/3 md:pl-8">
+                      <Card className="hover-lift">
+                        <CardContent className="p-6">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                                <Palette className="w-4 h-4 text-primary" />
+                                Ce que nous faisons :
+                              </h4>
+                              <ul className="space-y-2">
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Création de l'architecture du site (sitemap)</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Design d'interface sur-mesure et responsive</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Maquettes interactives pour validation</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Stratégie SEO technique intégrée</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                                <Target className="w-4 h-4 text-primary" />
+                                Livrables :
+                              </h4>
+                              <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li>• Maquettes design approbation client</li>
+                                <li>• Architecture technique validée</li>
+                                <li>• Guide de style et charte graphique</li>
+                                <li>• Plan d'optimisation SEO</li>
+                              </ul>
+                              <div className="mt-4 p-3 bg-primary/5 rounded-lg border border-primary/10">
+                                <p className="text-sm font-medium text-primary">
+                                  "80% de mes clients valident les designs dès le premier jet"
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+
+                  {/* Phase 3: Development */}
+                  <div ref={phaseRefs[2]} className="flex flex-col md:flex-row gap-8 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="600">
+                    <div className="md:w-1/3 md:text-right md:pr-8">
+                      <div className="flex items-center md:justify-end gap-4 mb-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold shadow-lg flex-shrink-0">
+                          3
+                        </div>
+                        <h3 className="text-xl font-bold md:text-right">Développement & Intégration</h3>
+                      </div>
+                      <p className="text-muted-foreground md:text-right">
+                        (Semaine 3-5) - Transformation du design en réalité technique
+                      </p>
+                    </div>
+                    <div className="md:w-2/3 md:pl-8">
+                      <Card className="hover-lift">
+                        <CardContent className="p-6">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                                <Code className="w-4 h-4 text-primary" />
+                                Ce que nous faisons :
+                              </h4>
+                              <ul className="space-y-2">
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Développement front-end et back-end sur-mesure</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Intégration de tous les contenus</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Optimisation performance et vitesse</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Tests multi-navigateurs et multi-appareils</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                                <Shield className="w-4 h-4 text-primary" />
+                                Technologies :
+                              </h4>
+                              <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li>• Next.js & React (performances optimales)</li>
+                                <li>• Tailwind CSS (design cohérent)</li>
+                                <li>• Intégration SEO technique avancée</li>
+                                <li>• Hébergement haute disponibilité</li>
+                              </ul>
+                              <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
+                                <Clock className="w-4 h-4" />
+                                <span>Tests qualité : 50+ points de contrôle</span>
+                              </div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+
+                  {/* Phase 4: Launch */}
+                  <div ref={phaseRefs[3]} className="flex flex-col md:flex-row gap-8 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="700">
+                    <div className="md:w-1/3 md:text-right md:pr-8">
+                      <div className="flex items-center md:justify-end gap-4 mb-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-primary/70 text-primary-foreground font-bold shadow-lg flex-shrink-0">
+                          4
+                        </div>
+                        <h3 className="text-xl font-bold md:text-right">Formation & Livraison</h3>
+                      </div>
+                      <p className="text-muted-foreground md:text-right">
+                        (Semaine 5-6) - Votre autonomie, ma priorité
+                      </p>
+                    </div>
+                    <div className="md:w-2/3 md:pl-8">
+                      <Card className="hover-lift">
+                        <CardContent className="p-6">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                                <Users className="w-4 h-4 text-primary" />
+                                Ce que nous faisons :
+                              </h4>
+                              <ul className="space-y-2">
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Formation personnalisée à l'utilisation</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Mise en ligne et configuration finale</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Support technique post-livraison</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <Check className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                                  <span>Documentation complète</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold mb-3 flex items-center gap-2">
+                                <Award className="w-4 h-4 text-primary" />
+                                Garanties incluses :
+                              </h4>
+                              <ul className="space-y-2 text-sm text-muted-foreground">
+                                <li>• Support gratuit 30 jours après livraison</li>
+                                <li>• Documentation complète et personnalisée</li>
+                                <li>• Formation en présentiel (Val d'Oise) ou visio</li>
+                                <li>• Certificat d'optimisation SEO fourni</li>
+                              </ul>
+                              <div className="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+                                <p className="text-sm font-medium text-green-800 flex items-center gap-2">
+                                  <HeartHandshake className="w-4 h-4" />
+                                  <span>Votre satisfaction garantie à 100%</span>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Value Proposition Footer */}
+            <div className="text-center mt-16 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="800">
+              <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20 max-w-3xl mx-auto">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-4">Pourquoi cette méthodologie fait la différence ?</h3>
+                  <div className="grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                      <div className="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Shield className="w-6 h-6" />
+                      </div>
+                      <h4 className="font-semibold mb-2">Sans surprise</h4>
+                      <p className="text-sm text-muted-foreground">Prix fixe, délais respectés, résultat garanti</p>
+                    </div>
+                    <div>
+                      <div className="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <MapPin className="w-6 h-6" />
+                      </div>
+                      <h4 className="font-semibold mb-2">Expertise locale</h4>
+                      <p className="text-sm text-muted-foreground">Je comprends votre marché Val d'Oise</p>
+                    </div>
+                    <div>
+                      <div className="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <Star className="w-6 h-6" />
+                      </div>
+                      <h4 className="font-semibold mb-2">Qualité premium</h4>
+                      <p className="text-sm text-muted-foreground">Standards professionnels, rien de bâclé</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="mt-8">
+                <Link href="/contact">
+                  <Button size="lg" className="h-12 rounded-full px-4 md:px-8 text-sm md:text-base shadow-md hover-lift">
+                    <Calendar className="mr-2 size-4" />
+                    Planifier un appel découverte
+                    <ArrowRight className="ml-2 size-4" />
+                  </Button>
+                </Link>
+                <p className="text-muted-foreground mt-4 text-sm">
+                  15 minutes au téléphone = une stratégie claire pour votre projet
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Client Results Section */}
+        <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30 overflow-x-hidden relative isolate noise-overlay">
+          {/* Radial spotlights */}
+          <div className="radial-spotlight-top-right"></div>
+          <div className="radial-spotlight-bottom-left"></div>
+          {/* Animated gradient orbs */}
+          <div className="gradient-orb gradient-orb-1"></div>
+          <div className="gradient-orb gradient-orb-3"></div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+              <Badge
+                variant="secondary"
+                className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="100"
+              >
+                <span className="mr-1 text-primary">✦</span> Résultats Concrets
+              </Badge>
+              <h2
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="200"
+              >
+                Des Résultats qui Parlent d'eux-Mêmes
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="300">
+                <div className="bg-primary/10 text-primary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold">+120%</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Augmentation des demandes</h3>
+                <p className="text-muted-foreground">Pour les artisans du Val d'Oise</p>
+              </div>
+
+              <div className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="400">
+                <div className="bg-primary/10 text-primary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold">4.9/5</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Satisfaction client</h3>
+                <p className="text-muted-foreground">Sur Google et recommandations</p>
+              </div>
+
+              <div className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="500">
+                <div className="bg-primary/10 text-primary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold">2-3</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Semaines moyenne</h3>
+                <p className="text-muted-foreground">Pour un site vitrine livré</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Comparison Table */}
+        <PricingComparisonTable />
+
+        {/* Guarantee Section */}
+        <GuaranteeSection />
+
+        {/* Why Choose Me Section */}
+        <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden isolate noise-overlay">
+          {/* Grid pattern */}
+          <div className="absolute inset-0 -z-10 grid-pattern-bg opacity-40"></div>
+          {/* Radial spotlights */}
+          <div className="radial-spotlight-top-right"></div>
+          <div className="radial-spotlight-bottom-left"></div>
+          {/* Animated gradient orbs */}
+          <div className="gradient-orb gradient-orb-2"></div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <Badge
+                  variant="secondary"
+                  className="mb-4 rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  data-delay="100"
+                >
+                  <span className="mr-1 text-primary">✦</span> Pourquoi Me Choisir ?
+                </Badge>
+                <h2
+                  className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                  data-delay="200"
+                >
+                  La différence Imaginatum
+                </h2>
+                <p className="text-muted-foreground text-lg max-w-2xl mx-auto mt-4">
+                  Comparé aux agences et aux templates, voici ce qui fait la différence
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <Card className="border-border/40 hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="300">
+                  <CardHeader>
+                    <CardTitle className="text-xl flex items-center">
+                      <Users className="mr-2 size-5 text-primary" />
+                      vs Agences
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Prix transparents sans marge d'agence (30-50% moins cher)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Contact direct, pas d'intermédiaire ou de commercial</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Délais de livraison plus courts (2-3 semaines vs 2-3 mois)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Relation de proximité et personnalisée</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border/40 hover-lift bg-primary/5 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="400">
+                  <CardHeader>
+                    <CardTitle className="text-xl flex items-center">
+                      <Code className="mr-2 size-5 text-primary" />
+                      vs Templates
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Design 100% sur-mesure adapté à votre activité</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Code propre et optimisé pour vos besoins spécifiques</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">SEO optimisé pour votre marché local (Val d'Oise)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Fonctionnalités spécifiques à votre métier</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border/40 hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="500">
+                  <CardHeader>
+                    <CardTitle className="text-xl flex items-center">
+                      <Zap className="mr-2 size-5 text-primary" />
+                      vs DIY
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Stack moderne et performant (Next.js, React, TypeScript)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Processus structuré et garanties claires</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Gain de temps précieux (vous focus sur votre métier)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="size-5 text-green-600 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">Support et maintenance inclus pour la tranquillité</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="text-center mt-12">
+                <Link href="/contact">
+                  <Button size="lg" className="h-12 rounded-full px-4 md:px-8 text-sm md:text-base shadow-md hover-lift">
+                    <Calendar className="mr-2 size-4" />
+                    Réserver un appel gratuit
+                    <ArrowRight className="ml-2 size-4" />
+                  </Button>
+                </Link>
+                <p className="text-muted-foreground mt-4 text-sm">
+                  15-30 minutes pour discuter de votre projet sans engagement
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-br from-background via-muted/5 to-background overflow-x-hidden relative isolate noise-overlay">
+          {/* Grid pattern */}
+          <div className="absolute inset-0 -z-10 grid-pattern-bg opacity-20"></div>
+          {/* Radial spotlight */}
+          <div className="radial-spotlight-center"></div>
+          {/* Animated orbs */}
+          <div className="gradient-orb gradient-orb-2"></div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+              <Badge
+                variant="secondary"
+                className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="100"
+              >
+                <span className="mr-1 text-primary">✦</span> Questions Fréquentes
+              </Badge>
+              <h2
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="200"
+              >
+                Tout Ce Que Vous Voulez Savoir
+              </h2>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1" className="border-b">
+                  <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary py-6">
+                    Combien de temps faut-il pour créer un site vitrine ?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                    En moyenne 2-3 semaines pour un site vitrine premium. Cela inclut la phase de conception, développement, et vos validations. Je respecte toujours les délais convenus dans le devis.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-2" className="border-b">
+                  <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary py-6">
+                    Proposez-vous un accompagnement après la livraison ?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                    Absolument ! Tous mes projets incluent 30 jours de support gratuit après la livraison, une formation personnalisée, et une documentation complète. Je propose également des forfaits de maintenance continue.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-3" className="border-b">
+                  <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary py-6">
+                    Travaillez-vous à distance ou en présentiel dans le Val d'Oise ?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                    Les deux ! Je me déplace volontiers dans tout le Val d'Oise (Cergy, Pontoise, etc.) pour les rencontres importantes, mais la majorité du processus peut se faire à distance pour plus de flexibilité.
+                  </AccordionContent>
+                </AccordionItem>
+
+                <AccordionItem value="item-4" className="border-b">
+                  <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary py-6">
+                    Que se passe-t-il si je ne suis pas satisfait du résultat ?
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                    Votre satisfaction est ma priorité. Si le résultat ne vous convient pas, nous travaillons ensemble jusqu'à ce qu'il réponde parfaitement à vos attentes. Je n'ai jamais eu besoin de recourir à cette garantie, mais elle existe pour vous rassurer.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-muted-foreground mb-6">Une question plus spécifique ? Parlons-en directement.</p>
+              <Link href="/contact">
+                <Button size="lg" className="rounded-full">
+                  <Phone className="mr-2 w-4 h-4" />
+                  Poser ma question
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-r from-primary via-primary/90 to-primary overflow-x-hidden relative isolate">
+          {/* Animated gradient overlay for depth */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary to-primary/90"></div>
+          {/* Radial spotlights */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"></div>
+          <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+            <div className="max-w-3xl mx-auto">
+              <h2
+                className="text-2xl md:text-3xl font-bold text-white mb-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="100"
+              >
+                Prêt à Transformer Votre Présence en Ligne ?
+              </h2>
+              <p
+                className="text-white/90 mb-8 text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="200"
+              >
+                Rejoignez les artisans et professionnels du Val d'Oise qui ont déjà boosté leur business avec un site web sur-mesure.
+              </p>
+              
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-gray-100 h-12 md:h-14 rounded-full px-4 md:px-10 text-sm md:text-lg font-bold shadow-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700 whitespace-normal text-center"
+                  data-delay="300"
+                >
+                  <span className="hidden sm:inline">🚀 </span>Demander Mon Devis <span className="hidden sm:inline">Personnalisé </span><span className="hidden sm:inline">🚀</span>
+                </Button>
+              </Link>
+              <p
+                className="text-white/80 mt-4 text-sm scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="400"
+              >
+                (15 minutes au téléphone pour une stratégie claire et un devis précis)
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </>
+  )
+}
