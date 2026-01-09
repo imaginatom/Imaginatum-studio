@@ -1,5 +1,6 @@
 const TestimonialSection = () => {
   return (
+<<<<<<< HEAD
     <section className="relative py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-muted/20 via-muted/10 to-background overflow-hidden isolate noise-overlay">
       {/* Grid pattern */}
       <div className="absolute inset-0 -z-10 grid-pattern-bg opacity-20"></div>
@@ -12,6 +13,10 @@ const TestimonialSection = () => {
       {/* Mesh gradient */}
       <div className="mesh-gradient-bg"></div>
       <div className="relative z-10 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+=======
+    <section className="py-12 bg-gray-50 sm:py-16 lg:py-20">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         <div className="flex flex-col items-center">
           <div className="text-center">
             <p className="text-lg font-medium text-gray-600 font-pj">
@@ -42,7 +47,11 @@ const TestimonialSection = () => {
               />
             </div>
 
+<<<<<<< HEAD
             <div className="relative grid max-w-lg grid-cols-1 gap-6 mx-auto md:max-w-7xl lg:gap-10 md:grid-cols-3">
+=======
+            <div className="relative grid max-w-lg grid-cols-1 gap-6 mx-auto md:max-w-none lg:gap-10 md:grid-cols-3">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <TestimonialCard
                 stars={5}
                 quote="You made it so simple. My new site is so much faster and easier to work with than my old site. I just choose the page, make the change."

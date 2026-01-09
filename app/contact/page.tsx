@@ -58,9 +58,15 @@ export default function ContactPage() {
     <>
       <main className="flex-1 overflow-x-hidden">
         {/* Hero Section */}
+<<<<<<< HEAD
         <section className="relative isolate container mx-auto w-full max-w-[100vw] py-24 md:py-32 lg:py-40">
           <div className="relative z-10 px-4 md:px-6">
             <div className="mx-auto max-w-4xl text-center">
+=======
+        <section className="relative isolate container mx-auto w-full max-w-[100vw] py-16 md:py-24 lg:py-28">
+          <div className="relative z-10 px-4 md:px-6">
+            <div className="mx-auto max-w-3xl text-center">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Badge
                 variant="secondary"
                 className="mb-4 rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
@@ -83,6 +89,7 @@ export default function ContactPage() {
               >
                 Prenons 15 minutes au téléphone pour échanger sur votre projet et voir comment je peux vous aider à développer votre présence en ligne.
               </p>
+<<<<<<< HEAD
               
               {/* Trust Signals */}
               <div className="flex flex-wrap items-center justify-center gap-4 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="350">
@@ -99,11 +106,14 @@ export default function ContactPage() {
                   Devis personnalisé sous 48h
                 </Badge>
               </div>
+=======
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             </div>
           </div>
         </section>
 
         {/* Contact Grid */}
+<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-muted/30 relative overflow-hidden isolate">
           <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
           <div className="container mx-auto px-4 md:px-6 relative">
@@ -161,6 +171,22 @@ export default function ContactPage() {
       </CardTitle>
       <CardDescription>
         Remplissez ce formulaire et je vous réponds sous 2h (jours ouvrés)
+=======
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-muted/30 relative overflow-hidden isolate">
+          <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
+          <div className="container mx-auto px-4 md:px-6 relative">
+            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              {/* Contact Form Section - Updated */}
+<div className="scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="400">
+  <Card className="border-border/40 hover-lift">
+    <CardHeader>
+      <CardTitle className="text-2xl flex items-center">
+        <MessageCircle className="mr-2 size-5 text-primary" />
+        Envoyez-moi un message
+      </CardTitle>
+      <CardDescription>
+        Remplissez ce formulaire et je vous réponds sous 24h
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       </CardDescription>
     </CardHeader>
     <CardContent>
@@ -254,7 +280,11 @@ export default function ContactPage() {
             </div>
             <div className="space-y-2">
               <label htmlFor="service" className="text-sm font-medium">
+<<<<<<< HEAD
                 Type de demande *
+=======
+                Service intéressé
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               </label>
               <select
                 id="service"
@@ -263,6 +293,7 @@ export default function ContactPage() {
                 value={formData.service}
                 onChange={handleChange}
                 disabled={state.submitting}
+<<<<<<< HEAD
                 required
               >
                 <option value="">Sélectionnez une option</option>
@@ -271,6 +302,13 @@ export default function ContactPage() {
                 <option value="devis-site-vitrine">Devis Site Vitrine</option>
                 <option value="devis-blog-portfolio">Devis Blog/Portfolio</option>
                 <option value="devis-ecommerce">Devis E-commerce (bientôt)</option>
+=======
+              >
+                <option value="">Sélectionnez une option</option>
+                <option value="site-vitrine">Site Vitrine</option>
+                <option value="blog-portfolio">Blog/Portfolio</option>
+                <option value="ecommerce">E-commerce (bientôt disponible)</option>
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 <option value="autre">Autre projet</option>
               </select>
               <ValidationError 
@@ -327,6 +365,7 @@ export default function ContactPage() {
   </Card>
 </div>
 
+<<<<<<< HEAD
             </div>
           </div>
         </section>
@@ -404,6 +443,122 @@ export default function ContactPage() {
                     <p className="text-sm text-muted-foreground">
                       Après validation, je démarre votre projet sous 1-2 semaines avec un planning clair.
                     </p>
+=======
+              {/* Contact Information */}
+              <div className="space-y-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="500">
+                <Card className="border-border/40 hover-lift">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">Mes coordonnées</CardTitle>
+                    <CardDescription>
+                      Plusieurs façons de me contacter pour discuter de votre projet
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex items-start">
+                      <div className="bg-primary/10 text-primary size-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <Phone className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Téléphone</h3>
+                        <p className="text-muted-foreground">06 38 05 05 47</p>
+                        <Link href="tel:+33638050547">
+                          <Button variant="link" className="p-0 h-auto text-primary">
+                            Appeler maintenant
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start">
+                      <div className="bg-primary/10 text-primary size-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <Mail className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Email</h3>
+                        <p className="text-muted-foreground">contact@imaginatum.fr</p>
+                        <Link href="mailto:contact@imaginatum.fr">
+                          <Button variant="link" className="p-0 h-auto text-primary">
+                            Envoyer un email
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start">
+                      <div className="bg-primary/10 text-primary size-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <MapPin className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Localisation</h3>
+                        <p className="text-muted-foreground">Val d'Oise, Île-de-France</p>
+                        <p className="text-sm text-muted-foreground">
+                          Interventions possibles en Ile de France.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start">
+                      <div className="bg-primary/10 text-primary size-12 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <Clock className="size-5" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold">Disponibilités</h3>
+                        <p className="text-muted-foreground">Lun-Ven: 9h-18h</p>
+                        <p className="text-sm text-muted-foreground">
+                          Réponse sous 24h pour les emails
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Social Links */}
+                <Card className="border-border/40 hover-lift">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">Réseaux sociaux</CardTitle>
+                    <CardDescription>
+                      Suivez-moi pour voir mes dernières réalisations
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex space-x-4">
+                      <Link href="#" className="bg-muted hover:bg-primary/10 size-12 rounded-full flex items-center justify-center transition-colors">
+                        <Linkedin className="size-5" />
+                      </Link>
+                      <Link href="#" className="bg-muted hover:bg-primary/10 size-12 rounded-full flex items-center justify-center transition-colors">
+                        <Facebook className="size-5" />
+                      </Link>
+                      <Link href="#" className="bg-muted hover:bg-primary/10 size-12 rounded-full flex items-center justify-center transition-colors">
+                        <Instagram className="size-5" />
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Quick Meeting Booking */}
+                <Card className="border-border/40 hover-lift bg-primary/5">
+                  <CardHeader>
+                    <CardTitle className="text-2xl flex items-center">
+                      <Calendar className="mr-2 size-5 text-primary" />
+                      Réserver un appel
+                    </CardTitle>
+                    <CardDescription>
+                      Planifions un appel de 15 minutes pour discuter de votre projet
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Link
+  href="https://calendly.com/sidahmedrose/30min"
+  target="_blank"
+>
+  <Button className="w-full h-12 rounded-full hover-scale">
+    <Calendar className="mr-2 size-4" />
+    Choisir un créneau
+    <ArrowRight className="ml-2 size-4" />
+  </Button>
+</Link>
+
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                   </CardContent>
                 </Card>
               </div>
@@ -412,9 +567,15 @@ export default function ContactPage() {
         </section>
 
         {/* FAQ Section */}
+<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-muted/30 relative overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16 max-w-7xl mx-auto">
+=======
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-background relative overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6 relative">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Badge
                 variant="secondary"
                 className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
@@ -430,7 +591,11 @@ export default function ContactPage() {
               </h2>
             </div>
 
+<<<<<<< HEAD
             <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+=======
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="300">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold mb-2 flex items-center">
@@ -438,7 +603,11 @@ export default function ContactPage() {
                     Quel est votre délai de réponse ?
                   </h3>
                   <p className="text-muted-foreground">
+<<<<<<< HEAD
                     Je réponds à tous les emails sous 2h en moyenne (jours ouvrés, 9h-18h). Pour les appels, je vous propose généralement un créneau dans les 24-48h via Calendly.
+=======
+                    Je réponds à tous les emails sous 24h ouvrées. Pour les appels, je vous propose généralement un créneau dans les 48h.
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                   </p>
                 </CardContent>
               </Card>
@@ -483,7 +652,11 @@ export default function ContactPage() {
         </section>
 
         {/* Final CTA */}
+<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-r from-primary to-primary/80 overflow-x-hidden">
+=======
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-gradient-to-r from-primary to-primary/80 overflow-x-hidden">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h2

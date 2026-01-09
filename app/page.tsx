@@ -27,15 +27,21 @@ import {
   Star
 } from "lucide-react"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+<<<<<<< HEAD
 import Image from "next/image"
+=======
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import TestimonialCard from '@/components/TestimonialCard';
 import TestimonialSection from '@/components/TestimonialCard';
+<<<<<<< HEAD
 import { LeadMagnet } from '@/components/lead-magnet';
 import { GuaranteeSection } from '@/components/guarantee-section';
 import { ClientLogos } from '@/components/client-logos';
 import { VisualProcessFlow } from '@/components/visual-process-flow';
+=======
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
 
 const testimonials = [
   {
@@ -105,6 +111,7 @@ export default function HomePage() {
       })
     }, observerOptions)
 
+<<<<<<< HEAD
     // Function to observe all scroll-animate elements
     const observeElements = () => {
       const elements = document.querySelectorAll(".scroll-animate")
@@ -126,6 +133,12 @@ export default function HomePage() {
       clearTimeout(timeoutId)
       observer.disconnect()
     }
+=======
+    const elements = document.querySelectorAll(".scroll-animate")
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
   }, [])
 
   // Carousel auto-rotation
@@ -180,9 +193,13 @@ export default function HomePage() {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <main className="flex-1 overflow-x-hidden">
        {/* Section Héro avec Background Dynamique */}
+<<<<<<< HEAD
 <section className="relative isolate overflow-hidden w-full max-w-[100vw] py-24 md:py-32 lg:py-48">
   {/* Base gradient overlay */}
   <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/5 z-0"></div>
+=======
+<section className="relative isolate overflow-hidden w-full max-w-[100vw] py-20 md:py-32 lg:py-40">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
   {/* Dynamic Background Images */}
   <div className="absolute inset-0 z-0">
     {[
@@ -207,9 +224,15 @@ export default function HomePage() {
     ))}
   </div>
   
+<<<<<<< HEAD
   <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-7xl">
     <div className="grid items-center gap-12 lg:grid-cols-2 max-w-7xl mx-auto">
       <div className="mx-auto max-w-2xl text-left lg:mx-0 w-full">
+=======
+  <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-[100vw]">
+    <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="mx-auto max-w-2xl text-left lg:mx-0">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         {/* Votre contenu existant reste inchangé */}
         <Badge
           variant="secondary"
@@ -224,13 +247,18 @@ export default function HomePage() {
           className="hero-heading mb-2 pb-6 text-3xl md:text-5xl lg:text-6xl scroll-animate opacity-0 translate-y-4 transition-all duration-700 break-words"
           data-delay="200"
         >
+<<<<<<< HEAD
           Votre Site Web Professionnel en temps record. Garanti.
+=======
+          Des Sites Web Exceptionnels pour Professionnels Exigeants
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         </h1>
 
         <p
           className="text-muted-foreground mb-8 text-base leading-relaxed md:text-xl scroll-animate opacity-0 translate-y-4 transition-all duration-700 break-words"
           data-delay="300"
         >
+<<<<<<< HEAD
           De l'idée au site qui convertit, sans stress. Solutions sur-mesure pour artisans et entrepreneurs du Val d'Oise. 
           <strong className="text-foreground"> Garantie satisfaction 100%</strong> - Si vous n'êtes pas satisfait, je rembourse intégralement.
         </p>
@@ -270,6 +298,12 @@ export default function HomePage() {
           </div>
         </div>
 
+=======
+          Transformez votre expertise en une présence en ligne qui inspire confiance et convertit vos visiteurs
+          en clients. Solutions sur-mesure pour artisans, professions libérales et entreprises du Val d'Oise.
+        </p>
+
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         <div
           className="flex flex-col gap-4 sm:flex-row scroll-animate opacity-0 translate-y-4 transition-all duration-700"
           data-delay="400"
@@ -292,32 +326,52 @@ export default function HomePage() {
           </Link>
         </div>
 
+<<<<<<< HEAD
         <div className="mt-8 flex flex-wrap items-center gap-4 md:gap-6">
+=======
+        <div className="mt-8 flex flex-wrap items-center gap-6">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
           <div
             className="text-muted-foreground flex items-center gap-2 text-sm scroll-animate opacity-0 translate-y-4 transition-all duration-700"
             data-delay="500"
           >
+<<<<<<< HEAD
             <Check className="text-primary size-5 flex-shrink-0" />
+=======
+            <Check className="text-primary size-5" />
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <span>Design sur-mesure adapté à votre métier</span>
           </div>
           <div
             className="text-muted-foreground flex items-center gap-2 text-sm scroll-animate opacity-0 translate-y-4 transition-all duration-700"
             data-delay="600"
           >
+<<<<<<< HEAD
             <Check className="text-primary size-5 flex-shrink-0" />
+=======
+            <Check className="text-primary size-5" />
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <span>Référencement naturel intégré</span>
           </div>
           <div
             className="text-muted-foreground flex items-center gap-2 text-sm scroll-animate opacity-0 translate-y-4 transition-all duration-700"
             data-delay="700"
           >
+<<<<<<< HEAD
             <Check className="text-primary size-5 flex-shrink-0" />
+=======
+            <Check className="text-primary size-5" />
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <span>Support personnalisé et formation</span>
           </div>
         </div>
 
         <div
+<<<<<<< HEAD
           className="mt-8 flex flex-wrap items-center gap-4 md:gap-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+          className="mt-8 flex items-center gap-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
           data-delay="800"
         >
           <div className="flex items-center gap-2">
@@ -340,7 +394,11 @@ export default function HomePage() {
       </div>
 
 {/* Enhanced Mockup Section with Carousel */}
+<<<<<<< HEAD
 <div className="relative hidden lg:flex items-center justify-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="900">
+=======
+<div className="relative hidden lg:block scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="900">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
   <div className="relative w-full max-w-4xl mx-auto">
     {/* Laptop Mockup Container */}
     <div className="relative">
@@ -404,6 +462,7 @@ export default function HomePage() {
   </div>
 </section>
 
+<<<<<<< HEAD
 
 {/* Section Avantages - REWRITTEN FOR CONVERSIONS */}
 <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden isolate noise-overlay">
@@ -420,26 +479,49 @@ export default function HomePage() {
       <Badge
         variant="secondary"
         className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+{/* Section Avantages - REWRITTEN FOR CONVERSIONS */}
+<section className="w-full max-w-[100vw] py-20 md:py-32 bg-muted/30 relative overflow-hidden isolate">
+  <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
+  <div className="container mx-auto px-4 md:px-6 relative">
+    <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+      <Badge
+        variant="secondary"
+        className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate  translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         data-delay="100"
       >
         <span className="mr-1 text-primary">✦</span> Avantages Concrets
       </Badge>
       <h2
+<<<<<<< HEAD
         className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+        className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate  translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         data-delay="200"
       >
         Des Résultats Mesurables pour Votre Entreprise
       </h2>
       <p
+<<<<<<< HEAD
         className="max-w-[800px] mx-auto text-muted-foreground md:text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+        className="max-w-[800px] text-muted-foreground md:text-lg scroll-animate  translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         data-delay="300"
       >
         Solutions web sur-mesure qui génèrent plus de leads, améliorent votre visibilité et boostent vos ventes.
       </p>
     </div>
 
+<<<<<<< HEAD
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
       <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift hover-glow border border-primary/10 bg-card/80 backdrop-blur" data-delay="400">
+=======
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <Card className="scroll-animate  translate-y-4 transition-all duration-700" data-delay="400">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         <CardContent className="p-6 text-center">
           <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-4">
             <TrendingUp className="size-8" />
@@ -451,7 +533,11 @@ export default function HomePage() {
         </CardContent>
       </Card>
 
+<<<<<<< HEAD
       <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift hover-glow border border-primary/10 bg-card/80 backdrop-blur" data-delay="500">
+=======
+      <Card className="scroll-animate  translate-y-4 transition-all duration-700" data-delay="500">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         <CardContent className="p-6 text-center">
           <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-4">
             <Zap className="size-8" />
@@ -461,7 +547,11 @@ export default function HomePage() {
         </CardContent>
       </Card>
 
+<<<<<<< HEAD
       <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift hover-glow border border-primary/10 bg-card/80 backdrop-blur" data-delay="600">
+=======
+      <Card className="scroll-animate  translate-y-4 transition-all duration-700" data-delay="600">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         <CardContent className="p-6 text-center">
           <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-4">
             <Smartphone className="size-8" />
@@ -473,7 +563,11 @@ export default function HomePage() {
         </CardContent>
       </Card>
 
+<<<<<<< HEAD
       <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift hover-glow border border-primary/10 bg-card/80 backdrop-blur" data-delay="700">
+=======
+      <Card className="scroll-animate  translate-y-4 transition-all duration-700" data-delay="700">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
         <CardContent className="p-6 text-center">
           <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-4">
             <Shield className="size-8" />
@@ -488,6 +582,7 @@ export default function HomePage() {
   </div>
 </section>
 
+<<<<<<< HEAD
 {/* Section Processus - VISUAL PROCESS FLOW */}
 <VisualProcessFlow />
 
@@ -502,6 +597,107 @@ export default function HomePage() {
           <div className="gradient-orb gradient-orb-1"></div>
           <div className="gradient-orb gradient-orb-3"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
+=======
+{/* Section Processus - CLEAN & PROFESSIONAL */}
+<section id="how-it-works" className="w-full max-w-[100vw] py-20 md:py-32 bg-background relative overflow-x-hidden">
+  
+  <div className="container mx-auto px-4 md:px-6 relative">
+    <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+      <Badge
+        variant="secondary"
+        className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="100"
+      >
+        <span className="mr-1 text-primary">✦</span> Notre Processus
+      </Badge>
+      <h2
+        className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="200"
+      >
+        Votre Projet en 3 Étapes Claires
+      </h2>
+      <p
+        className="max-w-[800px] text-muted-foreground md:text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="300"
+      >
+        Un parcours transparent et professionnel pour transformer votre vision en réalité digitale.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
+      {/* Step 1 */}
+      <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift group border-0 shadow-lg" data-delay="400">
+        <CardContent className="p-8 text-center">
+          <div className="bg-blue-50 text-blue-600 mx-auto flex size-20 items-center justify-center rounded-full mb-6 group-hover:bg-blue-100 transition-colors">
+            <Phone className="size-10" />
+          </div>
+          <div className="bg-blue-100 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold mb-4 mx-auto">
+            1
+          </div>
+          <h3 className="text-xl font-bold mb-4 text-blue-600">Consultation Stratégique</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            Nous analysons vos objectifs et définissons une stratégie digitale sur-mesure pour votre succès.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Step 2 */}
+      <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift group border-0 shadow-lg" data-delay="600">
+        <CardContent className="p-8 text-center">
+          <div className="bg-green-50 text-green-600 mx-auto flex size-20 items-center justify-center rounded-full mb-6 group-hover:bg-green-100 transition-colors">
+            <Code className="size-10" />
+          </div>
+          <div className="bg-green-100 text-green-600 rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold mb-4 mx-auto">
+            2
+          </div>
+          <h3 className="text-xl font-bold mb-4 text-green-600">Développement Sur-Mesure</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            Création de votre site avec technologies modernes, design unique et optimisation complète.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Step 3 */}
+      <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift group border-0 shadow-lg" data-delay="800">
+        <CardContent className="p-8 text-center">
+          <div className="bg-purple-50 text-purple-600 mx-auto flex size-20 items-center justify-center rounded-full mb-6 group-hover:bg-purple-100 transition-colors">
+            <CheckCircle className="size-10" />
+          </div>
+          <div className="bg-purple-100 text-purple-600 rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold mb-4 mx-auto">
+            3
+          </div>
+          <h3 className="text-xl font-bold mb-4 text-purple-600">Livraison & Formation</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            Votre site est livré clé en main avec formation complète pour une autonomie totale.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+
+    {/* Connection Dots for Visual Flow */}
+    <div className="hidden md:flex justify-center items-center mt-8 space-x-4">
+      <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+      <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+      <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+      <div className="w-2 h-2 bg-slate-300 rounded-full"></div>
+      <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+    </div>
+    
+    {/* CTA Button */}
+    <div className="text-center mt-12 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="900">
+      <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 md:px-8 py-3 text-sm md:text-lg rounded-full shadow-lg hover-lift">
+        <Phone className="mr-2 size-5" />
+        Démarrer Mon Projet
+      </Button>
+    </div>
+  </div>
+</section>
+
+        {/* Section Tarifs */}
+        <section className="w-full max-w-[100vw] py-20 md:py-32 bg-muted/30 relative overflow-hidden isolate">
+          <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
+          <div className="container mx-auto px-4 md:px-6 relative">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
                 variant="secondary"
@@ -524,7 +720,11 @@ export default function HomePage() {
               </p>
             </div>
 
+<<<<<<< HEAD
             <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+=======
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               {/* Site Vitrine */}
               <Card
                 className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift group"
@@ -534,6 +734,7 @@ export default function HomePage() {
                   <div className="bg-blue-500/10 text-blue-600 mx-auto flex size-16 items-center justify-center rounded-full mb-6 group-hover:bg-blue-500/20 transition-colors">
                     <Monitor className="size-8" />
                   </div>
+<<<<<<< HEAD
                   <h3 className="text-2xl font-bold mb-2">Site Vitrine Essentiel</h3>
                   <p className="text-muted-foreground mb-6">
                     Parfait pour artisans, commerçants, professions libérales
@@ -550,6 +751,24 @@ export default function HomePage() {
                     <li className="flex items-center gap-2">
                       <Check className="text-green-600 size-5 flex-shrink-0" />
                       <span>Design responsive + SEO local</span>
+=======
+                  <h3 className="text-2xl font-bold mb-2">Site Vitrine</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Parfait pour présenter votre activité et attirer de nouveaux clients
+                  </p>
+                  <div className="mb-6">
+                    <div className="text-4xl font-bold text-primary mb-2">1 200€</div>
+                    <div className="text-sm text-muted-foreground">Paiement unique</div>
+                  </div>
+                  <ul className="text-left space-y-3 mb-8 flex-1">
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Design responsive sur-mesure</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Optimisation SEO de base</span>
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="text-green-600 size-5 flex-shrink-0" />
@@ -557,6 +776,7 @@ export default function HomePage() {
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="text-green-600 size-5 flex-shrink-0" />
+<<<<<<< HEAD
                       <span>Plan Google Maps</span>
                     </li>
                     <li className="flex items-center gap-2">
@@ -575,13 +795,26 @@ export default function HomePage() {
                     </p>
                     <p className="text-xs text-muted-foreground">→ Version complète : 1 099€</p>
                   </div>
+=======
+                      <span>Hébergement 1 an inclus</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Formation à la gestion</span>
+                    </li>
+                  </ul>
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                   <Link href="/devis">
                     <Button className="w-full h-12 rounded-full hover-scale">Choisir cette formule</Button>
                   </Link>
                 </CardContent>
               </Card>
 
+<<<<<<< HEAD
               {/* Portfolio/Blog - Mise en avant */}
+=======
+              {/* E-commerce - Mise en avant */}
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Card
                 className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift group border-primary/50 relative"
                 data-delay="500"
@@ -591,6 +824,7 @@ export default function HomePage() {
                 </div>
                 <CardContent className="p-8 text-center h-full flex flex-col">
                   <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-6 group-hover:bg-primary/20 transition-colors">
+<<<<<<< HEAD
                     <FileCode className="size-8" />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Portfolio / Blog avec Admin</h3>
@@ -655,6 +889,15 @@ export default function HomePage() {
                   <div className="mb-6">
                     <div className="text-4xl font-bold text-primary mb-2">Bientôt</div>
                     <div className="text-sm text-muted-foreground">À partir de 2 700€</div>
+=======
+                    <ShoppingCart className="size-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">E-commerce</h3>
+                  <p className="text-muted-foreground mb-6">Vendez en ligne 24h/24 avec une boutique professionnelle</p>
+                  <div className="mb-6">
+                    <div className="text-4xl font-bold text-primary mb-2">2 500€</div>
+                    <div className="text-sm text-muted-foreground">Paiement unique</div>
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                   </div>
                   <ul className="text-left space-y-3 mb-8 flex-1">
                     <li className="flex items-center gap-2">
@@ -663,6 +906,7 @@ export default function HomePage() {
                     </li>
                     <li className="flex items-center gap-2">
                       <Check className="text-green-600 size-5 flex-shrink-0" />
+<<<<<<< HEAD
                       <span>Dashboard vendeur</span>
                     </li>
                     <li className="flex items-center gap-2">
@@ -683,19 +927,97 @@ export default function HomePage() {
                     </li>
                   </ul>
                   <Link href="/contact">
+=======
+                      <span>Paiement sécurisé intégré</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Gestion des stocks</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>SEO e-commerce avancé</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Formation complète</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Support prioritaire 3 mois</span>
+                    </li>
+                  </ul>
+                  <Link href="/devis">
+                    <Button className="w-full h-12 rounded-full hover-scale bg-primary">Choisir cette formule</Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              {/* Solution Premium */}
+              <Card
+                className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift group"
+                data-delay="600"
+              >
+                <CardContent className="p-8 text-center h-full flex flex-col">
+                  <div className="bg-purple-500/10 text-purple-600 mx-auto flex size-16 items-center justify-center rounded-full mb-6 group-hover:bg-purple-500/20 transition-colors">
+                    <Target className="size-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">Solution Premium</h3>
+                  <p className="text-muted-foreground mb-6">Projet sur-mesure avec fonctionnalités avancées</p>
+                  <div className="mb-6">
+                    <div className="text-4xl font-bold text-primary mb-2">Sur devis</div>
+                    <div className="text-sm text-muted-foreground">À partir de 4 000€</div>
+                  </div>
+                  <ul className="text-left space-y-3 mb-8 flex-1">
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Développement sur-mesure</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Intégrations complexes</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Application web avancée</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>SEO technique poussé</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Support dédié 6 mois</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Check className="text-green-600 size-5 flex-shrink-0" />
+                      <span>Maintenance incluse</span>
+                    </li>
+                  </ul>
+                  <Link href="/devis">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                     <Button
                       variant="outline"
                       className="w-full h-12 rounded-full hover-scale border-primary/50 hover:border-primary bg-transparent"
                     >
+<<<<<<< HEAD
                       Être informé du lancement
+=======
+                      Discutons de votre projet
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                     </Button>
                   </Link>
                 </CardContent>
               </Card>
             </div>
 
+<<<<<<< HEAD
             <div className="text-center mt-12 max-w-3xl mx-auto">
               <p className="text-muted-foreground mb-6 text-base md:text-lg">
+=======
+            <div className="text-center mt-12">
+              <p className="text-muted-foreground mb-4">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 Tous les tarifs incluent l'hébergement, le nom de domaine et la maintenance de base
               </p>
               <Link href="/contact">
@@ -708,6 +1030,7 @@ export default function HomePage() {
           </div>
         </section>
 
+<<<<<<< HEAD
         {/* Guarantee Section */}
         <GuaranteeSection />
 
@@ -719,6 +1042,12 @@ export default function HomePage() {
           <div className="gradient-orb gradient-orb-1"></div>
           <div className="gradient-orb gradient-orb-2"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
+=======
+        {/* Section Services */}
+        <section id="features" className="relative isolate w-full max-w-[100vw] py-20 md:py-32 overflow-x-hidden">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(from_var(--primary)_r_g_b_/_0.03),transparent_70%)]"></div>
+          <div className="container mx-auto px-4 md:px-6">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
               <Badge
                 variant="secondary"
@@ -728,21 +1057,35 @@ export default function HomePage() {
                 <span className="text-foreground mr-1">✦</span> Nos Solutions
               </Badge>
               <h2
+<<<<<<< HEAD
                 className="text-3xl md:text-4xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+                className="from-foreground to-foreground/80 bg-gradient-to-r bg-clip-text text-3xl font-bold tracking-tight text-transparent md:text-4xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 data-delay="200"
               >
                 Des Armes Secrètes Pour Vous Faire Décoller
               </h2>
               <p
+<<<<<<< HEAD
                 className="text-muted-foreground max-w-[800px] mx-auto md:text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+                className="text-muted-foreground max-w-[800px] md:text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 data-delay="300"
               >
                 Ne laissez plus jamais un client potentiel passer à côté
               </p>
             </div>
+<<<<<<< HEAD
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
               <Card
                 className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur transition-all hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Card
+                className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur transition-all hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4  duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 data-delay="400"
               >
                 <CardContent className="flex h-full flex-col p-6">
@@ -758,7 +1101,11 @@ export default function HomePage() {
               </Card>
 
               <Card
+<<<<<<< HEAD
                 className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur transition-all hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+                className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur transition-all hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4  duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 data-delay="500"
               >
                 <CardContent className="flex h-full flex-col p-6">
@@ -773,7 +1120,11 @@ export default function HomePage() {
               </Card>
 
               <Card
+<<<<<<< HEAD
                 className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur transition-all hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+                className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur  hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 data-delay="600"
               >
                 <CardContent className="flex h-full flex-col p-6">
@@ -788,7 +1139,11 @@ export default function HomePage() {
               </Card>
 
               <Card
+<<<<<<< HEAD
                 className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur transition-all hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+                className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur  hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 data-delay="700"
               >
                 <CardContent className="flex h-full flex-col p-6">
@@ -803,7 +1158,11 @@ export default function HomePage() {
               </Card>
 
               <Card
+<<<<<<< HEAD
                 className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur transition-all hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+=======
+                className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur  hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 data-delay="800"
               >
                 <CardContent className="flex h-full flex-col p-6">
@@ -816,10 +1175,29 @@ export default function HomePage() {
                   </p>
                 </CardContent>
               </Card>
+<<<<<<< HEAD
+=======
+              <Card
+                className="rounded-xl border text-card-foreground shadow border-border/40 from-card to-card/50 hover:border-primary/20 group h-full overflow-hidden bg-gradient-to-b backdrop-blur hover:shadow-lg hover-lift scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="400"
+              >
+                <CardContent className="flex h-full flex-col p-6">
+                  <div className="bg-primary/10 text-primary group-hover:bg-primary/20 mb-4 flex size-12 items-center justify-center rounded-full transition-colors duration-300 hover-scale">
+                    <Monitor className="size-5" />
+                  </div>
+                  <h3 className="mb-2 flex items-center gap-2 text-xl font-bold">Design Mobile-First</h3>
+                  <p className="text-muted-foreground text-pretty mb-6 ">
+                    "Votre site est-il prêt pour le tsunami mobile?" +70% des Français surfent principalement sur
+                    mobile.
+                  </p>
+                </CardContent>
+              </Card>
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             </div>
           </div>
         </section>
 
+<<<<<<< HEAD
 
 
       {/* Testimonials Section */}
@@ -898,6 +1276,16 @@ export default function HomePage() {
           {/* Animated orbs */}
           <div className="gradient-orb gradient-orb-2"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-7xl">
+=======
+{/* Testimonials Section */}
+<div>
+      {/* Other components */}
+      <TestimonialSection />
+    </div>
+      {/* FAQ Section */}
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-background overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
                 variant="secondary"
@@ -914,7 +1302,11 @@ export default function HomePage() {
               </h2>
             </div>
 
+<<<<<<< HEAD
             <div className="max-w-4xl mx-auto">
+=======
+             <div className="max-w-4xl mx-auto">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1" className="border-b">
                   <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary py-6">
@@ -978,6 +1370,7 @@ export default function HomePage() {
                     n'avez qu'un seul interlocuteur pour tout votre projet web. Simplicité garantie.
                   </AccordionContent>
                 </AccordionItem>
+<<<<<<< HEAD
 
                 <AccordionItem value="item-7" className="border-t">
                   <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary py-6">
@@ -1023,6 +1416,8 @@ export default function HomePage() {
                     Bien sûr ! Vous êtes actuellement sur un exemple concret : ce site que vous consultez. Il a été développé avec les mêmes technologies et la même approche que je propose à mes clients. Vous pouvez également consulter la page <Link href="/portfolio" className="text-primary hover:underline font-semibold">Portfolio</Link> pour voir d'autres réalisations. Et lors de notre consultation gratuite, je peux vous montrer en détail mon processus et mes compétences techniques.
                   </AccordionContent>
                 </AccordionItem>
+=======
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               </Accordion>
             </div>
 
@@ -1038,6 +1433,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+<<<<<<< HEAD
 
       {/* CTA Section */}
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-r from-primary via-primary/90 to-primary/80 relative overflow-hidden isolate">
@@ -1115,6 +1511,69 @@ export default function HomePage() {
           </div>
         </section>
 
+=======
+{/* Section CTA Finale */}
+<section className="relative w-full max-w-[100vw] py-20 overflow-hidden bg-primary">
+  {/* Animated Hexagon Background */}
+  <HexagonBackground
+  className="absolute inset-0 z-0"
+  hexagonSize={70}
+  hexagonMargin={4}
+  hexagonProps={{
+    style: {
+      backgroundColor: '#ff6347', // Tomato color
+      opacity: 0.8,
+    },
+  }}
+/>
+
+
+
+  {/* CTA Content */}
+  <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
+    <div className="max-w-3xl mx-auto">
+      <h2
+        className="text-2xl md:text-3xl font-bold text-stone-900 mb-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="100"
+      >
+        ⚠️ Vous Lisez Encore? ⚠️
+      </h2>
+
+      <p
+        className="text-stone-900 mb-8 text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="200"
+      >
+        Pendant ce temps... Vos concurrents optimisent leur site • Google référence leurs pages • Leurs clients
+        leur envoient des emails
+      </p>
+
+      <p
+        className="text-stone-900 font-semibold mb-10 text-xl scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="300"
+      >
+        Votre Projet Mérite D'exister En Ligne. Aujourd'hui.
+      </p>
+
+      <Link href="/devis">
+        <Button
+          size="lg"
+          className="bg-stone-900 text-secondary hover:bg-gray-100 h-12 md:h-14 rounded-full px-4 md:px-10 text-sm md:text-lg font-bold shadow-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700 whitespace-normal text-center"
+          data-delay="400"
+        >
+          <span className="block md:inline">🚀</span> <span className="hidden sm:inline">JE VEUX MON </span>DEVIS GRATUIT <span className="block md:inline">🚀</span>
+        </Button>
+      </Link>
+
+      <p
+        className="text-white/80 mt-4 text-sm scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+        data-delay="500"
+      >
+        (15 minutes au téléphone = une stratégie claire pour vous)
+      </p>
+    </div>
+  </div>
+</section>
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       </main>
 
     </div>

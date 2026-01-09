@@ -4,13 +4,19 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Sun, Moon } from "lucide-react"
 import Link from "next/link"
+<<<<<<< HEAD
 import Image from "next/image"
+=======
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
 
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
+<<<<<<< HEAD
   { href: "/about", label: "À propos" },
+=======
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
   { href: "/contact", label: "Contact" },
 ]
 
@@ -62,6 +68,7 @@ export function FloatingNavbar() {
             {/* Logo */}
             <Link
               href="/"
+<<<<<<< HEAD
               className="text-foreground font-bold text-xl flex items-center gap-2 hover:opacity-90 transition-opacity group"
             >
               <div className="relative size-8 md:size-10 flex-shrink-0">
@@ -75,6 +82,14 @@ export function FloatingNavbar() {
               </div>
               <span className="bg-gradient-to-r from-primary via-pink-500 to-primary bg-clip-text text-transparent font-extrabold tracking-tight">
                  
+=======
+              className="text-foreground font-bold text-xl flex items-center hover:opacity-90 transition-opacity"
+            >
+              <span
+                className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent"
+              >
+                KarateDojo
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               </span>
             </Link>
 

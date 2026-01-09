@@ -32,8 +32,11 @@ import {
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+<<<<<<< HEAD
 import { PricingComparisonTable } from "@/components/pricing-comparison-table"
 import { GuaranteeSection } from "@/components/guarantee-section"
+=======
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
 
 // Custom hook for intersection observer
 interface UseOnScreenOptions {
@@ -107,9 +110,15 @@ export default function ServicesPage() {
     <>
       <main className="flex-1 overflow-x-hidden">
         {/* Hero Section avec image */}
+<<<<<<< HEAD
         <section className="relative isolate container mx-auto w-full max-w-[100vw] py-24 md:py-32 lg:py-40">
           <div className="relative z-10 px-4 md:px-6">
             <div className="grid items-center gap-12 lg:grid-cols-2 max-w-7xl mx-auto">
+=======
+        <section className="relative isolate container mx-auto w-full max-w-[100vw] py-16 md:py-24 lg:py-28">
+          <div className="relative z-10 px-4 md:px-6">
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <div className="mx-auto max-w-2xl text-left">
                 <Badge
                   variant="secondary"
@@ -145,6 +154,7 @@ export default function ServicesPage() {
                       <ArrowRight className="ml-2 size-4" />
                     </Button>
                   </Link>
+<<<<<<< HEAD
                   <div className="flex flex-col gap-3 sm:flex-row">
                     <Link href="https://calendly.com/sidahmedrose/30min" target="_blank">
                       <Button
@@ -167,6 +177,18 @@ export default function ServicesPage() {
                       </Button>
                     </Link>
                   </div>
+=======
+                  <Link href="#pricing">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="h-12 rounded-full border-primary/20 px-8 text-base hover-lift hover:border-primary/50 bg-transparent"
+                    >
+                      Voir les formules
+                      <ChevronRight className="ml-2 size-4" />
+                    </Button>
+                  </Link>
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                 </div>
               </div>
 
@@ -193,6 +215,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Value Proposition Section avec icônes visuelles */}
+<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-b from-background via-muted/10 to-background relative overflow-hidden isolate noise-overlay">
           {/* Grid pattern */}
           <div className="absolute inset-0 -z-10 grid-pattern-bg opacity-30"></div>
@@ -203,6 +226,11 @@ export default function ServicesPage() {
           <div className="gradient-orb gradient-orb-1"></div>
           <div className="gradient-orb gradient-orb-2"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
+=======
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-muted/30 relative overflow-hidden isolate">
+          <div className="absolute inset-0 -z-10 grid-pattern-bg"></div>
+          <div className="container mx-auto px-4 md:px-6 relative">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <h2
                 className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
@@ -218,7 +246,11 @@ export default function ServicesPage() {
               </p>
             </div>
 
+<<<<<<< HEAD
             <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+=======
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 text-center group" data-delay="300">
                 <CardContent className="p-6">
                   <div className="bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors mx-auto flex size-20 items-center justify-center rounded-full mb-4">
@@ -265,10 +297,15 @@ export default function ServicesPage() {
         </section>
 
         {/* Professional Process Section with Interactive Timeline */}
+<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-br from-background via-muted/5 to-background relative overflow-x-hidden isolate noise-overlay">
           {/* Subtle radial spotlight */}
           <div className="radial-spotlight-center"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
+=======
+        <section className="w-full max-w-[100vw] py-20 md:py-28 bg-background relative overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
                 variant="secondary"
@@ -619,6 +656,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Client Results Section */}
+<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30 overflow-x-hidden relative isolate noise-overlay">
           {/* Radial spotlights */}
           <div className="radial-spotlight-top-right"></div>
@@ -627,6 +665,10 @@ export default function ServicesPage() {
           <div className="gradient-orb gradient-orb-1"></div>
           <div className="gradient-orb gradient-orb-3"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
+=======
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-muted/50 overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
                 variant="secondary"
@@ -643,7 +685,11 @@ export default function ServicesPage() {
               </h2>
             </div>
 
+<<<<<<< HEAD
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+=======
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <div className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="300">
                 <div className="bg-primary/10 text-primary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold">+120%</span>
@@ -671,6 +717,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
+<<<<<<< HEAD
         {/* Pricing Comparison Table */}
         <PricingComparisonTable />
 
@@ -808,11 +855,196 @@ export default function ServicesPage() {
                   15-30 minutes pour discuter de votre projet sans engagement
                 </p>
               </div>
+=======
+        {/* Services/Pricing Section avec visuels */}
+        <section id="pricing" className="w-full max-w-[100vw] py-16 md:py-24 bg-background relative overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6 relative">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+              <Badge
+                variant="secondary"
+                className="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="100"
+              >
+                <span className="mr-1 text-primary">✦</span> Mes Offres
+              </Badge>
+              <h2
+                className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="200"
+              >
+                Des Solutions Adaptées à Votre Besoin
+              </h2>
+              <p
+                className="max-w-[800px] text-muted-foreground md:text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
+                data-delay="300"
+              >
+                Je me spécialise sur ce que je maîtrise parfaitement pour vous garantir un résultat exceptionnel
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* Site Vitrine Premium */}
+              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift group overflow-hidden" data-delay="400">
+                <div className="relative h-48 w-full overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
+                    <div className="text-center p-6 bg-background/80 backdrop-blur rounded-xl">
+                      <Palette className="w-12 h-12 text-primary mx-auto mb-2" />
+                      <h3 className="font-semibold">Site Vitrine Premium</h3>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-70"></div>
+                  <div className="absolute bottom-4 left-4">
+                    <Badge className="bg-primary/90 backdrop-blur">Le plus populaire</Badge>
+                  </div>
+                </div>
+                <CardHeader className="text-center pb-4">
+                  <CardTitle className="text-2xl">Site Vitrine Premium</CardTitle>
+                  <CardDescription className="text-lg">
+                    Votre présence en ligne professionnelle et efficace
+                  </CardDescription>
+                  <div className="mt-4">
+                    <div className="text-3xl font-bold text-primary">1 200€ - 1 800€</div>
+                    <div className="text-sm text-muted-foreground">Livraison en 2-3 semaines</div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Design responsive sur-mesure</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>5 pages essentielles</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Optimisation SEO de base</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Formulaire de contact</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Formation à la gestion</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Hébergement 1 an inclus</span>
+                    </li>
+                  </ul>
+                  <Link href="/devis">
+                    <Button className="w-full">Choisir cette formule</Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              {/* Blog/Portfolio Basique */}
+              <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 hover-lift group overflow-hidden" data-delay="500">
+                <div className="relative h-48 w-full overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center">
+                    <div className="text-center p-6 bg-background/80 backdrop-blur rounded-xl">
+                      <FileText className="w-12 h-12 text-primary mx-auto mb-2" />
+                      <h3 className="font-semibold">Blog/Portfolio</h3>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-70"></div>
+                </div>
+                <CardHeader className="text-center pb-4">
+                  <CardTitle className="text-2xl">Blog/Portfolio Basique</CardTitle>
+                  <CardDescription className="text-lg">
+                    Partagez votre expertise et attirez plus de clients
+                  </CardDescription>
+                  <div className="mt-4">
+                    <div className="text-3xl font-bold text-primary">1 800€ - 2 500€</div>
+                    <div className="text-sm text-muted-foreground">Livraison en 3-4 semaines</div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3 mb-6">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Tout du site vitrine premium</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Système de blog intégré</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Galerie portfolio avancée</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>SEO avancé pour le contenu</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Catégories et tags</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span>Integration réseaux sociaux</span>
+                    </li>
+                  </ul>
+                  <Link href="/devis">
+                    <Button className="w-full">Choisir cette formule</Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Coming Soon - E-commerce */}
+            <div className="max-w-2xl mx-auto mt-16 scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="600">
+              <Card className="border-primary/20 bg-gradient-to-r from-primary/5 to-primary/10 overflow-hidden">
+                <div className="relative h-48 w-full overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center">
+                    <div className="text-center p-6 bg-background/80 backdrop-blur rounded-xl">
+                      <TrendingUp className="w-12 h-12 text-primary mx-auto mb-2" />
+                      <h3 className="font-semibold">E-commerce (Bientôt)</h3>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-primary/10"></div>
+                </div>
+                <CardContent className="p-6 flex flex-col md:flex-row items-center text-center md:text-left relative z-10">
+                  <div className="flex-1 mb-4 md:mb-0">
+                    <h3 className="text-xl font-bold mb-2">Solution E-commerce</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Boutique en ligne complète pour vendre vos produits et services
+                    </p>
+                    <Badge variant="outline" className="bg-primary/10 text-primary">
+                      Disponible début 2024
+                    </Badge>
+                  </div>
+                  <div>
+                    <Link href="/contact">
+                      <Button variant="outline">
+                        <Mail className="mr-2 w-4 h-4" />
+                        Être informé du lancement
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-muted-foreground mb-6">
+                Des questions sur ces formules? Discutons-en gratuitement pendant 15 minutes.
+              </p>
+              <Link href="/contact">
+                <Button variant="outline" size="lg" className="rounded-full">
+                  <Phone className="mr-2 w-4 h-4" />
+                  Consultation téléphonique gratuite
+                </Button>
+              </Link>
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             </div>
           </div>
         </section>
 
         {/* FAQ Section */}
+<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-br from-background via-muted/5 to-background overflow-x-hidden relative isolate noise-overlay">
           {/* Grid pattern */}
           <div className="absolute inset-0 -z-10 grid-pattern-bg opacity-20"></div>
@@ -821,6 +1053,10 @@ export default function ServicesPage() {
           {/* Animated orbs */}
           <div className="gradient-orb gradient-orb-2"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
+=======
+        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-background overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
                 variant="secondary"
@@ -890,6 +1126,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Final CTA Section */}
+<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-r from-primary via-primary/90 to-primary overflow-x-hidden relative isolate">
           {/* Animated gradient overlay for depth */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary to-primary/90"></div>
@@ -897,6 +1134,10 @@ export default function ServicesPage() {
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl"></div>
           <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+=======
+        <section className="w-full max-w-[100vw] py-20 bg-gradient-to-r from-primary to-primary/80 overflow-x-hidden">
+          <div className="container mx-auto px-4 md:px-6 text-center">
+>>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="max-w-3xl mx-auto">
               <h2
                 className="text-2xl md:text-3xl font-bold text-white mb-6 scroll-animate opacity-0 translate-y-4 transition-all duration-700"
