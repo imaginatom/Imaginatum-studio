@@ -3,10 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-<<<<<<< HEAD
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
 import {
   ArrowRight,
   Eye,
@@ -20,16 +17,12 @@ import {
   Smartphone,
   Zap,
   ChevronDown,
-<<<<<<< HEAD
   MapPin,
   Target,
   CheckCircle,
   TrendingUp,
   Quote,
   X
-=======
-  MapPin
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
 } from "lucide-react"
 import { useEffect, useState } from "react"
 import Link from "next/link"
@@ -39,84 +32,64 @@ export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState("all")
   const [isFilterOpen, setIsFilterOpen] = useState(false)
 
-<<<<<<< HEAD
   // Données des projets - Utilisez vos propres images de projets
   // Images recommandées : /projects/project-[1-4].png ou /portfolio/[nom-projet].png
-=======
-  // Données des projets (à remplacer par vos propres projets)
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
   const projects = [
     {
       id: 1,
-      title: "La Table Française",
-      description: "Site vitrine pour un restaurant gastronomique avec système de réservation en ligne",
-<<<<<<< HEAD
-      image: "/projects/project-1.png", // Remplacez par votre screenshot réel
-      fallbackImage: "/projects/project-3.jpg", // Image de fallback si la principale n'existe pas
-=======
-      image: "/placeholder.svg?height=400&width=600",
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
+      title: "Doina Maziere – Psychologue Clinicienne",
+      description: "Site vitrine professionnel pour un cabinet de psychologie clinique spécialisé en TSA, TDAH et bilans psychologiques.",
+      image: "/projects/psycho.png", // Screenshot principal du site
+      fallbackImage: "/projects/doina-maziere.jpg",
       category: "site-vitrine",
-      technologies: ["Next.js", "Tailwind CSS", "Prisma"],
+      technologies: ["Next.js", "Tailwind CSS", "SEO Local"],
       featured: true,
-      results: "+120% de réservations en ligne",
-<<<<<<< HEAD
-      challenge: "Le restaurant cherchait à augmenter ses réservations en ligne tout en modernisant son image digitale.",
-      solution: "Création d'un site vitrine élégant avec intégration d'un système de réservation en temps réel, optimisation mobile-first et SEO local.",
+      results: "+100 patients accompagnés",
+      challenge: "Créer un site rassurant, clair et crédible pour un cabinet de psychologie clinique, tout en facilitant la prise de rendez-vous et la compréhension des parcours de diagnostic.",
+      solution: "Conception d’un site vitrine structuré et accessible mettant en avant l’expertise clinique, les services (bilans TSA/TDAH, TCC), l’approche scientifique et l’accès rapide à Doctolib, avec une optimisation SEO locale.",
       metrics: [
-        { label: "Réservations en ligne", value: "+120%", improvement: true },
-        { label: "Taux de conversion", value: "15%", improvement: true },
+        { label: "Patients accompagnés", value: "+100", improvement: true },
+        { label: "Note Doctolib", value: "5/5", improvement: true },
         { label: "Temps de chargement", value: "< 2s", improvement: true }
       ],
-      clientQuote: "Le site a complètement transformé notre façon de gérer les réservations. Les clients adorent la simplicité !",
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
-      link: "#",
-      github: "#",
-      year: 2024
-    },
+      clientQuote: "Le site reflète parfaitement mon approche : professionnel, clair et rassurant. Les patients trouvent facilement les informations et prennent rendez-vous en toute confiance.",
+      link: "https://v0-psychologist-website-design-peach-xi.vercel.app/", // ou URL du site final
+      github: null,
+      year: 2026
+    }
+    ,
     {
       id: 2,
-      title: "Artisan Menuisier Valdoisien",
-      description: "Portfolio en ligne pour un artisan menuisier avec galerie de réalisations",
-<<<<<<< HEAD
-      image: "/portfolio/kakachi.png", // Utilise l'image existante
+      title: "KATACHI Studio",
+      description: "Site vitrine premium pour une marque de mobilier design mettant en avant des collections haut de gamme, l’artisanat et une expérience visuelle immersive.",
+      image: "/portfolio/kakachi.png",
       fallbackImage: "/portfolio/katachi.png",
-=======
-      image: "/portfolio/kakachi.png?height=400&width=600",
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       category: "site-vitrine",
-      technologies: ["React", "CSS Modules", "Node.js"],
+      technologies: ["React", "CSS Modules", "Node.js", "Design System"],
       featured: false,
-      results: "5 devis par semaine en moyenne",
-<<<<<<< HEAD
-      challenge: "L'artisan avait besoin d'une vitrine en ligne pour présenter ses réalisations et générer des demandes de devis.",
-      solution: "Portfolio responsive avec galerie interactive, formulaire de devis optimisé et référencement local pour le Val d'Oise.",
+      results: "Positionnement premium renforcé",
+      challenge: "Traduire l’univers luxueux et intemporel de la marque en une expérience digitale élégante, tout en valorisant les collections, les matériaux et le savoir-faire artisanal.",
+      solution: "Conception d’un site immersif axé sur le storytelling de marque, des visuels pleine largeur, une hiérarchie typographique raffinée et une navigation fluide inspirée des codes du luxe.",
       metrics: [
-        { label: "Demandes de devis", value: "5/semaine", improvement: true },
-        { label: "Visibilité locale", value: "+80%", improvement: true }
+        { label: "Engagement utilisateur", value: "+65%", improvement: true },
+        { label: "Temps passé sur le site", value: "+40%", improvement: true },
+        { label: "Perception premium", value: "↑", improvement: true }
       ],
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
-      link: "#",
+      clientQuote: "Le site reflète parfaitement l’ADN de KATACHI : minimalisme, élégance et exigence artisanale. L’expérience digitale est à la hauteur de nos pièces.",
+      link: "https://kitachi-1mdy.vercel.app/",
       github: "#",
-      year: 2024
+      year: 2026
     },
     {
       id: 3,
       title: "Blog Littéraire",
       description: "Plateforme de blog pour un auteur avec système de commentaires et abonnements",
-<<<<<<< HEAD
       image: "/projects/project-2.png", // Remplacez par votre screenshot réel
       fallbackImage: "/projects/project-4.png",
-=======
-      image: "/placeholder.svg?height=400&width=600",
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       category: "blog-portfolio",
       technologies: ["Next.js", "Tailwind CSS", "MongoDB"],
       featured: true,
       results: "200 abonnés en 2 mois",
-<<<<<<< HEAD
       challenge: "L'auteur voulait une plateforme moderne pour partager ses écrits et développer une communauté de lecteurs.",
       solution: "Blog performant avec système d'abonnements, commentaires modérés, SEO optimisé et design élégant qui met en valeur le contenu.",
       metrics: [
@@ -125,8 +98,6 @@ export default function PortfolioPage() {
         { label: "Temps de lecture", value: "+40%", improvement: true }
       ],
       clientQuote: "La plateforme dépasse toutes mes attentes. La communauté grandit chaque jour !",
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       link: "#",
       github: "#",
       year: 2023
@@ -135,25 +106,18 @@ export default function PortfolioPage() {
       id: 4,
       title: "Studio de Yoga",
       description: "Site présentiel avec planning des cours et formulaire d'inscription",
-<<<<<<< HEAD
       image: "/projects/project-3.jpg", // Utilise l'image existante
       fallbackImage: "/projects/project-1.png",
-=======
-      image: "/projects/project-3.jpg?",
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       category: "site-vitrine",
       technologies: ["HTML/CSS", "JavaScript", "PHP"],
       featured: false,
       results: "30 nouvelles inscriptions",
-<<<<<<< HEAD
       challenge: "Le studio de yoga avait besoin d'un système pour gérer les inscriptions en ligne et présenter son planning de cours.",
       solution: "Site vitrine avec calendrier interactif, système d'inscription en ligne et optimisation pour mobile.",
       metrics: [
         { label: "Nouvelles inscriptions", value: "30", improvement: true },
         { label: "Inscriptions en ligne", value: "70%", improvement: true }
       ],
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       link: "#",
       github: "#",
       year: 2023
@@ -162,25 +126,18 @@ export default function PortfolioPage() {
       id: 5,
       title: "Portfolio Photographe",
       description: "Galerie portfolio pour un photographe professionnel avec filtres par catégorie",
-<<<<<<< HEAD
       image: "/portfolio/infinit-gallery.png", // Utilise l'image existante
       fallbackImage: "/portfolio/kakachi.png",
-=======
-      image: "/portfolio/infinit-gallery.png?height=400&width=600",
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       category: "blog-portfolio",
       technologies: ["React", "Framer Motion", "Firebase"],
       featured: false,
       results: "Exposition digitale des œuvres",
-<<<<<<< HEAD
       challenge: "Le photographe cherchait une vitrine digitale élégante pour présenter ses œuvres et attirer de nouveaux clients.",
       solution: "Portfolio interactif avec galerie infinie, filtres par catégorie, animations fluides et formulaire de contact intégré.",
       metrics: [
         { label: "Taux de visite", value: "+90%", improvement: true },
         { label: "Demandes de contact", value: "+50%", improvement: true }
       ],
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       link: "#",
       github: "#",
       year: 2023
@@ -189,36 +146,26 @@ export default function PortfolioPage() {
       id: 6,
       title: "Site Association",
       description: "Présentation d'une association caritative avec formulaire de dons",
-<<<<<<< HEAD
       image: "/projects/project-4.png", // Remplacez par votre screenshot réel
       fallbackImage: "/projects/project-2.png",
-=======
-      image: "/placeholder.svg?height=400&width=600",
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       category: "site-vitrine",
       technologies: ["WordPress", "Elementor", "Stripe"],
       featured: false,
       results: "Augmentation des dons de 40%",
-<<<<<<< HEAD
       challenge: "L'association voulait moderniser son site pour faciliter les dons en ligne et augmenter sa visibilité.",
       solution: "Site vitrine moderne avec intégration sécurisée des dons, storytelling impactant et optimisation pour la conversion.",
       metrics: [
         { label: "Dons en ligne", value: "+40%", improvement: true },
         { label: "Visiteurs uniques", value: "+60%", improvement: true }
       ],
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
       link: "#",
       github: "#",
       year: 2023
     }
   ]
 
-<<<<<<< HEAD
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
 
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
   const filters = [
     { id: "all", label: "Tous les projets" },
     { id: "site-vitrine", label: "Sites vitrine" },
@@ -258,15 +205,9 @@ export default function PortfolioPage() {
     <>
       <main className="flex-1 overflow-x-hidden">
         {/* Hero Section */}
-<<<<<<< HEAD
         <section className="relative isolate container mx-auto w-full max-w-[100vw] py-24 md:py-32 lg:py-40">
           <div className="relative z-10 px-4 md:px-6">
             <div className="mx-auto max-w-4xl text-center">
-=======
-        <section className="relative isolate container mx-auto w-full max-w-[100vw] py-16 md:py-24 lg:py-28">
-          <div className="relative z-10 px-4 md:px-6">
-            <div className="mx-auto max-w-3xl text-center">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Badge
                 variant="secondary"
                 className="mb-4 rounded-full px-4 py-1.5 text-sm font-medium shadow-sm hover-glow scroll-animate opacity-0 translate-y-4 transition-all duration-700"
@@ -317,15 +258,9 @@ export default function PortfolioPage() {
         </section>
 
         {/* Stats Section */}
-<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-muted/30 overflow-x-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
-=======
-        <section className="w-full max-w-[100vw] py-16 bg-muted/30 overflow-x-hidden">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <div className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700" data-delay="100">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">15+</div>
                 <div className="text-muted-foreground">Projets livrés</div>
@@ -347,11 +282,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Portfolio Section */}
-<<<<<<< HEAD
         <section id="portfolio" className="w-full max-w-[100vw] py-24 md:py-32 bg-background relative overflow-x-hidden">
-=======
-        <section id="portfolio" className="w-full max-w-[100vw] py-16 md:py-24 bg-background relative overflow-x-hidden">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <Badge
@@ -365,21 +296,13 @@ export default function PortfolioPage() {
                 className="section-heading scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="200"
               >
-<<<<<<< HEAD
                 Cas clients et Résultats Concrets
-=======
-                Une sélection de mes projets
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               </h2>
               <p
                 className="max-w-[800px] text-muted-foreground md:text-lg scroll-animate opacity-0 translate-y-4 transition-all duration-700"
                 data-delay="300"
               >
-<<<<<<< HEAD
                 Découvrez comment j'ai aidé des professionnels comme vous à développer leur présence en ligne avec des résultats mesurables
-=======
-                Découvrez comment j'ai aidé des professionnels comme vous à développer leur présence en ligne
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               </p>
             </div>
 
@@ -431,11 +354,7 @@ export default function PortfolioPage() {
             </div>
 
             {/* Projects Grid */}
-<<<<<<< HEAD
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-=======
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               {filteredProjects.map((project, index) => (
                 <Card 
                   key={project.id} 
@@ -449,7 +368,6 @@ export default function PortfolioPage() {
                       alt={project.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
-<<<<<<< HEAD
                       onError={(e) => {
                         // Fallback to fallbackImage if main image doesn't exist
                         const target = e.currentTarget as HTMLImageElement
@@ -460,8 +378,6 @@ export default function PortfolioPage() {
                           target.src = "/placeholder.svg"
                         }
                       }}
-=======
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                     />
                     {project.featured && (
                       <div className="absolute top-4 left-4">
@@ -480,7 +396,7 @@ export default function PortfolioPage() {
                       )}
                       {project.link && (
                         <Button size="icon" className="rounded-full h-8 w-8 bg-background/80 backdrop-blur">
-                          <ExternalLink className="size-4" />
+                          <Link href={project.link} target="_blank"><ExternalLink className="size-4" /></Link> 
                         </Button>
                       )}
                     </div>
@@ -509,7 +425,6 @@ export default function PortfolioPage() {
                       </div>
                     </div>
                     
-<<<<<<< HEAD
                     <div className="flex items-center justify-between text-sm mb-4 p-3 bg-muted/50 rounded-lg">
                       <div className="flex items-center text-muted-foreground">
                         <TrendingUp className="mr-1 size-4 text-green-500" />
@@ -533,16 +448,6 @@ export default function PortfolioPage() {
                     >
                       <Eye className="mr-2 size-4" />
                       Voir le cas client
-=======
-                    <div className="flex items-center text-sm text-muted-foreground mb-4">
-                      <Zap className="mr-1 size-4 text-green-500" />
-                      <span>{project.results}</span>
-                    </div>
-                    
-                    <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <Eye className="mr-2 size-4" />
-                      Voir les détails
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
                     </Button>
                   </CardContent>
                 </Card>
@@ -561,7 +466,6 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-<<<<<<< HEAD
         {/* Case Study Detail Modal */}
         {selectedProject && (
           <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
@@ -678,10 +582,6 @@ export default function PortfolioPage() {
 
         {/* Testimonials Section */}
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-muted/30 overflow-x-hidden">
-=======
-        {/* Testimonials Section */}
-        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-muted/30 overflow-x-hidden">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <Badge
@@ -699,11 +599,7 @@ export default function PortfolioPage() {
               </h2>
             </div>
 
-<<<<<<< HEAD
             <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-=======
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Card className="scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg" data-delay="300">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
@@ -774,7 +670,6 @@ export default function PortfolioPage() {
         </section>
 
         {/* Process Section */}
-<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-br from-background via-muted/5 to-background relative overflow-x-hidden isolate noise-overlay">
           {/* Grid pattern */}
           <div className="absolute inset-0 -z-10 grid-pattern-bg opacity-20"></div>
@@ -784,10 +679,6 @@ export default function PortfolioPage() {
           <div className="gradient-orb gradient-orb-1"></div>
           <div className="gradient-orb gradient-orb-2"></div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
-=======
-        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-background relative overflow-x-hidden">
-          <div className="container mx-auto px-4 md:px-6 relative">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
               <Badge
                 variant="secondary"
@@ -804,11 +695,7 @@ export default function PortfolioPage() {
               </h2>
             </div>
 
-<<<<<<< HEAD
             <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-=======
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
               <Card className="text-center scroll-animate opacity-0 translate-y-4 transition-all duration-700 border-0 shadow-lg" data-delay="300">
                 <CardContent className="p-6">
                   <div className="bg-primary/10 text-primary mx-auto flex size-16 items-center justify-center rounded-full mb-4">
@@ -849,11 +736,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Final CTA */}
-<<<<<<< HEAD
         <section className="w-full max-w-[100vw] py-24 md:py-32 bg-gradient-to-r from-primary to-primary/80 overflow-x-hidden">
-=======
-        <section className="w-full max-w-[100vw] py-16 md:py-24 bg-gradient-to-r from-primary to-primary/80 overflow-x-hidden">
->>>>>>> 964c0af6842e469a214be30f28ffe7241d52c254
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
               <h2
